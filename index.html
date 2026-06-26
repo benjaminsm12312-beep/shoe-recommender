@@ -81,6 +81,15 @@
   }
   .nav-tag b { color: var(--accent); }
   @media (max-width: 560px){ .nav-tag { display: none; } }
+  .nav-links {
+    display: flex; align-items: center; gap: 22px;
+  }
+  .nav-links a {
+    font-family: var(--font-body); font-weight: 600; font-size: 14.5px;
+    color: var(--ink-soft); text-decoration: none;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.current { color: var(--accent); }
 
   /* ---------- HERO ---------- */
   .hero { padding: 64px 0 54px; }
@@ -297,8 +306,11 @@
   <div class="wrap nav-inner">
     <!-- EDIT: site name -->
     <a href="#" class="wordmark">The Shoe Recommender<span class="dot">.</span></a>
-    <!-- EDIT: little trust line in the nav -->
-    <div class="nav-tag">Independent &middot; <b>no brand deals</b></div>
+    <!-- EDIT: little trust line in the nav, plus the page links -->
+    <div class="nav-links">
+      <div class="nav-tag">Independent &middot; <b>no brand deals</b></div>
+      <a href="about.html">About Us</a>
+    </div>
   </div>
 </header>
 
