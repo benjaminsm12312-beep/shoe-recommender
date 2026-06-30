@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Affiliate Disclosure — The Shoe Recommender</title>
+
+<!-- ============================================================
+     AFFILIATE DISCLOSURE PAGE
+     Matches the rest of the site's design system.
+     EDIT markers show where to personalize once company name
+     and any final details are locked in.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink:        #17181C;
+    --ink-soft:   #44474F;
+    --paper:      #FAFAF9;
+    --paper-2:    #F0EFEB;
+    --line:       #E3E2DC;
+    --accent:     #E8462B;
+    --accent-deep:#C5371E;
+    --accent-tint:#FBE6DF;
+    --white:      #FFFFFF;
+    --font-display: 'Archivo', system-ui, sans-serif;
+    --font-body:    'Hanken Grotesk', system-ui, sans-serif;
+    --maxw: 1080px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px;
+  }
+
+  header.nav {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    position: sticky; top: 0; z-index: 50;
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+  .wordmark {
+    font-family: var(--font-display); font-weight: 900; font-size: 18px;
+    letter-spacing: -0.02em; text-decoration: none; color: var(--ink);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .wordmark .dot { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 22px; }
+  .nav-links a { font-family: var(--font-body); font-weight: 600; font-size: 14.5px; color: var(--ink-soft); text-decoration: none; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.current { color: var(--accent); }
+
+  .page-head { padding: 56px 0 18px; }
+  .kicker {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  h1.title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(32px, 6vw, 48px); letter-spacing: -0.03em; line-height: 1.05;
+  }
+  .updated { margin-top: 12px; font-size: 13.5px; color: var(--ink-soft); }
+
+  .doc { padding: 24px 0 90px; max-width: 72ch; }
+  .doc h2 {
+    font-family: var(--font-display); font-weight: 800; font-size: 21px;
+    margin: 34px 0 12px;
+  }
+  .doc p { font-size: 16px; color: var(--ink-soft); margin-bottom: 14px; }
+  .doc ul { margin: 10px 0 14px 22px; }
+  .doc li { font-size: 16px; color: var(--ink-soft); margin-bottom: 8px; }
+
+  .callout {
+    margin: 28px 0;
+    padding: 20px 24px;
+    background: var(--accent-tint);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    font-size: 15.5px;
+    color: var(--ink);
+  }
+  .callout strong { font-family: var(--font-display); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 34px 0; margin-top: 10px;
+    font-size: 13.5px; color: var(--ink-soft);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  footer .fm { font-family: var(--font-display); font-weight: 900; color: var(--ink); }
+  footer .fm .dot { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="wordmark">The Shoe Recommender<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="disclosure.html" class="current">Disclosure</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="kicker">Legal</div>
+    <h1 class="title">Affiliate Disclosure</h1>
+    <!-- EDIT: update this date whenever the policy changes -->
+    <p class="updated">Last updated: June 2026</p>
+  </div>
+</section>
+
+<section class="doc wrap">
+
+  <p>This page explains how The Shoe Recommender makes money and what that means for you as a reader. We believe you deserve to know this plainly, before you click anything on this site.</p>
+
+  <div class="callout">
+    <strong>The short version:</strong> Some links on this site are affiliate links. If you click one and make a purchase, we may earn a small commission, at no extra cost to you. This never changes which shoe we recommend.
+  </div>
+
+  <h2>What this means</h2>
+  <p>The Shoe Recommender participates in affiliate marketing programs, including the Amazon Associates Program, Running Warehouse's affiliate program, and affiliate programs run directly by individual shoe brands. These programs let us earn a commission by linking to products on their sites.</p>
+  <p>In plain terms: when you take our fit quiz and we recommend a shoe, the link to buy that shoe may be an affiliate link. If you click it and buy something, whether that exact shoe or anything else during that shopping session, we may receive a small percentage of that sale. You pay the same price either way. It costs you nothing extra.</p>
+
+  <h2>Our recommendations come first</h2>
+  <p>We built this site because we were tired of guessing which shoe was actually right, and we don't want to become the thing we were trying to avoid. Every recommendation is based on what we genuinely believe fits your feet and how you run, not on which program pays the highest commission. If a shoe we don't earn a commission from is the right call for you, we'll still recommend it.</p>
+
+  <h2>Why we're telling you this</h2>
+  <p>The Federal Trade Commission (FTC) requires anyone who earns money through affiliate links to clearly disclose that relationship to their audience. We're glad it's required, honestly, because we think you should know this regardless. Trust is the entire point of this site, and that means being upfront about how it's funded.</p>
+
+  <h2>Questions</h2>
+  <p>If anything here is unclear, or you want to know more about how a specific recommendation was made, reach out any time at <a href="mailto:shoe.recommender@gmail.com">shoe.recommender@gmail.com</a> or visit our <a href="contact.html">Contact page</a>.</p>
+
+</section>
+
+<footer class="wrap">
+  <div class="fm">The Shoe Recommender<span class="dot">.</span></div>
+  <div>Independent shoe-fitting guidance &middot; Not affiliated with any shoe brand</div>
+</footer>
+
+</body>
+</html>
