@@ -75,6 +75,7 @@
     display: flex; align-items: center; gap: 8px;
   }
   .wordmark .dot { color: var(--accent); }
+  .nav-logo { height: 32px; width: auto; }
   .nav-tag {
     font-size: 12.5px; font-weight: 600; color: var(--ink-soft);
     letter-spacing: 0.01em;
@@ -138,15 +139,30 @@
   .btn:hover .arrow { transform: translateX(3px); }
   .btn-time { font-size: 14px; font-weight: 600; color: var(--ink-soft); font-family: var(--font-body); }
 
-  /* ---------- FIT GAUGE (the signature visual) ---------- */
-  .gauge { margin-top: 48px; }
-  .gauge-label {
-    display: flex; justify-content: space-between;
-    font-size: 12px; font-weight: 600; letter-spacing: .08em;
-    text-transform: uppercase; color: var(--ink-soft);
-    margin-bottom: 10px;
+  /* ---------- FIT SPECTRUM (animated hero bar) ---------- */
+  .hero-spectrum { margin-top: 48px; }
+  .hero-bar {
+    height: 14px; border-radius: 999px; position: relative;
+    background: linear-gradient(90deg, var(--accent) 0%, #E0A07D 30%, var(--paper-2) 50%, #8FA1C8 70%, var(--ink-soft) 100%);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.12);
   }
-  .gauge svg { width: 100%; height: 56px; display: block; }
+  .hero-marker {
+    position: absolute; top: 50%;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--ink);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 12px rgba(0,0,0,.35);
+    animation: drift 5.5s ease-in-out infinite;
+  }
+  @keyframes drift { 0%,100% { left: 22%; } 50% { left: 78%; } }
+  .hero-bar-labels {
+    display: flex; justify-content: space-between;
+    margin-top: 14px; font-size: 13px;
+    color: var(--ink-soft); font-weight: 500;
+  }
+  .hero-bar-labels b { color: var(--ink); }
 
   /* ---------- TRUST BAR ---------- */
   .trust {
@@ -357,7 +373,7 @@
   @media (prefers-reduced-motion: reduce){
     .rise { animation: none; opacity: 1; transform: none; }
     html { scroll-behavior: auto; }
-    .gauge-marker { animation: none !important; }
+    .hero-marker { animation: none !important; left: 50% !important; }
   }
 </style>
 </head>
@@ -367,7 +383,7 @@
 <header class="nav">
   <div class="wrap nav-inner">
     <!-- EDIT: site name -->
-    <a href="#" class="wordmark">The Shoe Recommender<span class="dot">.</span></a>
+    <a href="#" class="wordmark"><img src="logo.png" alt="" class="nav-logo" />The Shoe Recommender<span class="dot">.</span></a>
     <!-- EDIT: little trust line in the nav, plus the page links -->
     <div class="nav-links">
       <div class="nav-tag">Independent &middot; <b>no brand deals</b></div>
@@ -399,31 +415,16 @@
       <span class="btn-time">Takes about a minute</span>
     </div>
 
-    <!-- SIGNATURE: the fit gauge -->
-    <div class="gauge rise d4" aria-hidden="true">
-      <div class="gauge-label"><span>Too cushioned</span><span>Your fit</span><span>Too firm</span></div>
-      <svg viewBox="0 0 1000 56" preserveAspectRatio="none">
-        <!-- baseline -->
-        <line x1="0" y1="40" x2="1000" y2="40" stroke="#E3E2DC" stroke-width="2"/>
-        <!-- ticks -->
-        <g stroke="#CFCEC7" stroke-width="2">
-          <line x1="40"  y1="28" x2="40"  y2="40"/>
-          <line x1="140" y1="32" x2="140" y2="40"/>
-          <line x1="240" y1="32" x2="240" y2="40"/>
-          <line x1="340" y1="32" x2="340" y2="40"/>
-          <line x1="440" y1="28" x2="440" y2="40"/>
-          <line x1="560" y1="32" x2="560" y2="40"/>
-          <line x1="660" y1="32" x2="660" y2="40"/>
-          <line x1="760" y1="32" x2="760" y2="40"/>
-          <line x1="860" y1="32" x2="860" y2="40"/>
-          <line x1="960" y1="28" x2="960" y2="40"/>
-        </g>
-        <!-- marker that slides into the "your fit" position -->
-        <g class="gauge-marker">
-          <line x1="500" y1="14" x2="500" y2="40" stroke="#E8462B" stroke-width="3"/>
-          <polygon points="500,8 492,20 508,20" fill="#E8462B"/>
-        </g>
-      </svg>
+    <!-- SIGNATURE: animated fit spectrum -->
+    <div class="hero-spectrum rise d4" aria-hidden="true">
+      <div class="hero-bar">
+        <span class="hero-marker"></span>
+      </div>
+      <div class="hero-bar-labels">
+        <b>Soft &amp; cushioned</b>
+        <span>Balanced</span>
+        <b>Firm &amp; responsive</b>
+      </div>
     </div>
   </div>
 </section>
@@ -815,19 +816,6 @@ function finish(){
   result.scrollIntoView({behavior:'smooth',block:'start'});
 }
 render();
-
-// slide the hero gauge marker in on load (skipped if reduced-motion)
-window.addEventListener('load', function(){
-  const marker = document.querySelector('.gauge-marker');
-  if (!marker) return;
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) return;
-  marker.style.transition = 'transform 1s cubic-bezier(.5,.1,.2,1)';
-  marker.style.transform = 'translateX(-180px)';
-  requestAnimationFrame(function(){
-    setTimeout(function(){ marker.style.transform = 'translateX(0)'; }, 250);
-  });
-});
 </script>
 </body>
 </html>
