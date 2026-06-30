@@ -268,6 +268,68 @@
   }
   .restart:hover { background: #000; }
 
+  /* ---------- QUIZ ENGINE ADDITIONS (Billy's engine, styled to match) ---------- */
+  /* question text + help inside the card */
+  .q-text { font-family: var(--font-display); font-weight: 800; font-size: clamp(20px,3.5vw,26px); letter-spacing:-0.01em; margin: 6px 0 4px; }
+  .q-help { color: var(--ink-soft); font-size: 14.5px; margin-bottom: 22px; }
+  /* the option button (engine uses .option; selected state .sel; sub-label small; multi tick) */
+  .option {
+    text-align:left; background: var(--paper); border:1.5px solid var(--line);
+    border-radius:11px; padding:15px 16px; font-size:16px; font-weight:600;
+    cursor:pointer; font-family:var(--font-body); color:var(--ink);
+    transition:border-color .12s, background .12s, transform .08s;
+    display:flex; align-items:center; gap:13px; width:100%;
+  }
+  .option:hover { border-color: var(--accent); background: var(--accent-tint); }
+  .option:active { transform: scale(.99); }
+  .option small { display:block; color:var(--ink-soft); font-weight:400; font-size:13.5px; margin-top:2px; }
+  .option .tick { width:20px; height:20px; border-radius:6px; border:2px solid var(--line); flex:none; display:grid; place-items:center; transition:.12s; }
+  .option.sel { border-color: var(--accent); background: var(--accent-tint); }
+  .option.sel .tick { background: var(--accent); border-color: var(--accent); }
+  .option.sel .tick::after { content:"\2713"; color:#fff; font-size:11px; font-weight:800; }
+  /* continue button for multi-select questions */
+  .next-btn {
+    font-family: var(--font-display); font-weight: 800; background: var(--ink); color: var(--white);
+    border:none; border-radius:10px; padding:12px 24px; cursor:pointer; font-size:15px;
+  }
+  .next-btn[disabled] { opacity:.35; pointer-events:none; }
+  .quiz-nav { margin-top:22px; display:flex; justify-content:space-between; align-items:center; }
+
+  /* ---------- RESULTS SCREEN ---------- */
+  .result-card {
+    background: var(--white); border:1px solid var(--line); border-radius:16px;
+    max-width:660px; margin:36px auto 0; padding:30px;
+    box-shadow: 0 1px 0 var(--line), 0 18px 40px -30px rgba(0,0,0,.25);
+  }
+  .result-card h3.arch { font-family:var(--font-display); font-weight:900; font-size:26px; letter-spacing:-0.02em; margin-bottom:10px; }
+  .result-card .why { font-size:16px; color:var(--ink-soft); }
+  /* spectrum bar reused in results */
+  .res-spectrum { margin:26px 0 6px; }
+  .spectrum-bar { height:12px; border-radius:999px; position:relative; background:linear-gradient(90deg, #E8462B 0%, #E0A07d 46%, #8FA1C8 100%); }
+  .spectrum-marker { position:absolute; top:50%; width:20px; height:20px; border-radius:50%; background:#fff; border:3px solid var(--accent); transform:translate(-50%,-50%); box-shadow:0 2px 10px rgba(0,0,0,.25); }
+  .spectrum-labels { display:flex; justify-content:space-between; margin-top:12px; font-size:12.5px; color:var(--ink-soft); font-weight:500; }
+  .spectrum-labels b { color:var(--ink); }
+  /* per-fit callouts */
+  .callout { background: var(--accent-tint); border:1px solid #F6D9C8; border-radius:12px; padding:13px 15px; margin-top:14px; font-size:14px; color:#8a3d1c; }
+  .callout b { color:#6e2f12; }
+  /* the three picks */
+  .picks-h { font-family:var(--font-display); font-weight:800; font-size:12.5px; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-soft); margin:28px 0 12px; }
+  .pick { border:1.5px solid var(--line); border-radius:14px; padding:16px; margin-bottom:12px; display:flex; flex-direction:column; gap:7px; }
+  .pick-top { display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
+  .pick .name { font-family:var(--font-display); font-weight:800; font-size:18px; }
+  .pick .tag { font-size:11.5px; font-weight:700; color:var(--accent); background:var(--accent-tint); padding:3px 9px; border-radius:999px; white-space:nowrap; }
+  .pick .pwhy { font-size:14.5px; color:var(--ink-soft); }
+  .pick .price { font-size:13.5px; color:var(--ink-soft); font-weight:600; }
+  .shop-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:4px; }
+  .pick .shop { font-family:var(--font-display); font-weight:800; font-size:13.5px; color:#fff; background:var(--ink); padding:9px 18px; border-radius:10px; text-decoration:none; transition:.15s; }
+  .pick .shop:hover { background:#000; }
+  .pick .shop.alt { background:var(--accent); }
+  .pick .shop.alt:hover { background:var(--accent-deep); }
+  .tradeoff { font-size:14px; color:var(--ink-soft); margin-top:18px; padding-top:18px; border-top:1px solid var(--line); }
+  .tradeoff b { color:var(--ink); }
+  .result-card .disc { font-size:12.5px; color:var(--ink-soft); margin-top:16px; }
+  .hidden { display:none !important; }
+
   /* ---------- WHY TRUST US ---------- */
   .why-grid { margin-top: 38px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
   .why-item h3 { font-family: var(--font-display); font-weight: 800; font-size: 18px; margin-bottom: 7px; display:flex; gap:10px; align-items:baseline;}
@@ -416,22 +478,29 @@
     <div class="kicker">The fit quiz</div>
     <h2 class="sec">Let's find your shoe.</h2>
 
-    <div class="quiz-card">
+    <div class="quiz-card" id="card">
       <!-- progress bar -->
-      <div class="quiz-progress" id="progressWrap">
-        <div class="track"><div class="fill" id="progressFill"></div></div>
-        <div class="count" id="progressCount">1 / 5</div>
+      <div class="quiz-progress">
+        <div class="track"><div class="fill" id="bar"></div></div>
+        <div class="count" id="qcount">1 / 5</div>
       </div>
 
-      <!-- question / result gets injected here -->
-      <div id="quizBody"></div>
+      <!-- question text + help -->
+      <div class="q-text" id="qtext"></div>
+      <div class="q-help" id="qhelp"></div>
+
+      <!-- options get injected here -->
+      <div class="options" id="opts"></div>
 
       <!-- nav -->
-      <div class="quiz-nav" id="quizNav">
-        <button class="back-btn" id="backBtn" disabled>&larr; Back</button>
-        <span></span>
+      <div class="quiz-nav">
+        <button class="back-btn" id="back" disabled>&larr; Back</button>
+        <button class="next-btn hidden" id="next" disabled>Continue &rarr;</button>
       </div>
     </div>
+
+    <!-- results render here -->
+    <div class="result-card hidden" id="result"></div>
   </div>
 </section>
 
@@ -473,180 +542,279 @@
 </footer>
 
 <script>
-/* ================================================================
-   QUIZ DATA  —  THIS IS THE PART BILLY FILLS IN
-   ----------------------------------------------------------------
-   Replace these placeholder questions with Billy's real ones.
-   Each question is an object:
-     {
-       id:    "shortName",            // used to label the answer
-       text:  "The question",         // the big question shown
-       help:  "Optional hint line",   // small grey text (or "")
-       options: [
-         { label: "What the user sees", value: "stored value" },
-         ...
-       ]
-     }
-   Add or remove questions freely — the progress bar adjusts itself.
-   ================================================================ */
-const QUESTIONS = [
-  {
-    id: "use",
-    text: "What are you mostly using these for?",
-    help: "Pick the closest fit — this changes everything downstream.",
-    options: [
-      { label: "Running on roads / sidewalks", value: "Road running" },
-      { label: "Trails and off-road",           value: "Trail running" },
-      { label: "Walking / on my feet all day",  value: "Walking" },
-      { label: "Gym / mixed workouts",          value: "Gym" }
-    ]
-  },
-  {
-    id: "distance",
-    text: "How far do you usually go?",
-    help: "Roughly per session.",
-    options: [
-      { label: "Under 5 km",     value: "Short" },
-      { label: "5–15 km",        value: "Medium" },
-      { label: "15 km+",         value: "Long" },
-      { label: "Not sure yet",   value: "Unsure" }
-    ]
-  },
-  {
-    id: "width",
-    text: "How does your foot tend to fit shoes?",
-    help: "Be honest — most people are wider than they think.",
-    options: [
-      { label: "Narrow",                value: "Narrow" },
-      { label: "Standard / average",    value: "Standard" },
-      { label: "Wide",                  value: "Wide" }
-    ]
-  },
-  {
-    id: "arch",
-    text: "What are your arches like?",
-    help: "Wet-foot test: a full footprint means low arches; a thin band means high.",
-    options: [
-      { label: "Low / flat",   value: "Low arch" },
-      { label: "Medium",       value: "Medium arch" },
-      { label: "High",         value: "High arch" }
-    ]
-  },
-  {
-    id: "feel",
-    text: "What ride do you like underfoot?",
-    help: "How a shoe feels when it lands.",
-    options: [
-      { label: "Soft and cushioned",      value: "Cushioned" },
-      { label: "Firm and responsive",     value: "Firm" },
-      { label: "No idea — surprise me",   value: "No preference" }
-    ]
-  }
+/* ==================================================================
+   THE SHOE RECOMMENDER — catalog-driven fit quiz
+   Engine + fitting logic + shoe catalog by Billy.
+   The SHOES array IS the sheet. Engine: filter by activity+support+
+   width, score by cushion/support/speed/feel/volume, pick a brand+
+   feel spread. Parked for later: trail, lifting, "where do you run".
+================================================================== */
+
+const SHOES = [
+  {"id": "ghost18", "name": "Brooks Ghost 18", "brand": "Brooks", "activities": ["running", "walking"], "support": ["neutral"], "cushion": "medium", "feel": "bouncy-firm", "speed": ["daily"], "volume": "standard", "toebox": "standard", "widths": ["standard", "wide"], "note": "Smooth, dependable daily trainer — fits a huge range of feet.", "linkM": "https://amzn.to/4eP4NzP", "linkW": "https://amzn.to/440CnOm", "price": 150},
+  {"id": "glycerin23", "name": "Brooks Glycerin 23", "brand": "Brooks", "activities": ["running", "walking", "standing"], "support": ["neutral", "supportive-neutral"], "cushion": "high", "feel": "in-between", "speed": ["daily"], "volume": "high", "toebox": "standard", "widths": ["standard", "wide"], "note": "Plush but structured high cushion with a locked-in heel.", "linkM": "https://amzn.to/4y0GtDW", "linkW": "https://amzn.to/4ePxTPD", "price": 175},
+  {"id": "adrenalinegts25", "name": "Brooks Adrenaline GTS 25", "brand": "Brooks", "activities": ["running", "walking"], "support": ["stability"], "cushion": "medium", "feel": "bouncy-firm", "speed": ["daily"], "volume": "standard", "toebox": "standard", "widths": ["standard", "wide"], "note": "Natural-feeling guidance — the benchmark stability trainer.", "linkM": "https://amzn.to/4v6tk9F", "linkW": "https://amzn.to/3Rf4CWF", "price": 155},
+  {"id": "880v15", "name": "New Balance 880 v15", "brand": "New Balance", "activities": ["running", "walking"], "support": ["neutral"], "cushion": "high", "feel": "bouncy-firm", "speed": ["daily"], "volume": "standard", "toebox": "standard", "widths": ["standard", "wide"], "note": "Big balanced cushion in true widths — easy everyday miles.", "linkM": "https://amzn.to/4p3byTq", "linkW": "https://amzn.to/4v9MAmt", "price": 150},
+  {"id": "1080", "name": "New Balance 1080", "brand": "New Balance", "activities": ["running", "walking", "standing"], "support": ["neutral", "supportive-neutral"], "cushion": "high", "feel": "plush", "speed": ["daily"], "volume": "high", "toebox": "standard", "widths": ["standard", "wide"], "note": "Plush, roomy all-rounder that still rolls — comes in widths.", "linkM": "https://amzn.to/4wiKsdf", "linkW": "https://amzn.to/4vG0z4Q", "price": 170},
+  {"id": "rebelv5", "name": "New Balance Rebel v5", "brand": "New Balance", "activities": ["running"], "support": ["neutral"], "cushion": "medium", "feel": "in-between", "speed": ["daily", "tempo"], "volume": "standard", "toebox": "standard", "widths": ["standard", "wide"], "note": "Soft but light and peppy — easy miles or pickups.", "linkM": "https://amzn.to/4bgp28m", "linkW": "https://amzn.to/3RbXmuH", "price": 145},
+  {"id": "860v15", "name": "New Balance 860 v15", "brand": "New Balance", "activities": ["running", "walking"], "support": ["stability"], "cushion": "high", "feel": "bouncy-firm", "speed": ["daily"], "volume": "standard", "toebox": "standard", "widths": ["standard", "wide"], "note": "Tall, cushioned stability on a wide, planted base.", "linkM": "https://amzn.to/4exRODK", "linkW": "https://amzn.to/4xVV5Ez", "price": 150},
+  {"id": "ride19", "name": "Saucony Ride 19", "brand": "Saucony", "activities": ["running", "walking"], "support": ["neutral"], "cushion": "medium", "feel": "in-between", "speed": ["daily"], "volume": "standard", "toebox": "standard", "widths": ["standard", "wide"], "note": "Balanced, no-drama daily trainer — versatile and comfortable.", "linkM": "https://amzn.to/4xRnvj7", "linkW": "https://amzn.to/44J2JVb", "price": 145},
+  {"id": "triumph24", "name": "Saucony Triumph 24", "brand": "Saucony", "activities": ["running", "walking", "standing"], "support": ["neutral", "supportive-neutral"], "cushion": "max", "feel": "plush", "speed": ["daily"], "volume": "high", "toebox": "wide", "widths": ["standard", "wide"], "note": "Max-cushion softness on a wide, stable platform.", "linkM": "https://amzn.to/4eDzTf0", "linkW": "https://amzn.to/4aWBKJq", "price": 170},
+  {"id": "endorphinspeed5", "name": "Saucony Endorphin Speed 5", "brand": "Saucony", "activities": ["running"], "support": ["neutral"], "cushion": "medium", "feel": "in-between", "speed": ["daily", "tempo", "race"], "volume": "low", "toebox": "standard", "widths": ["standard"], "note": "Plated and springy — race-shoe feel you can train in.", "linkM": "https://amzn.to/4wiw7gY", "linkW": "https://amzn.to/4v4oslu", "price": 175},
+  {"id": "guide19", "name": "Saucony Guide 19", "brand": "Saucony", "activities": ["running", "walking"], "support": ["stability"], "cushion": "medium", "feel": "bouncy-firm", "speed": ["daily"], "volume": "standard", "toebox": "standard", "widths": ["standard", "wide"], "note": "Steady, lighter stability that never feels braced.", "linkM": "https://amzn.to/4exSnNS", "linkW": "https://amzn.to/4f8Xi8a", "price": 150},
+  {"id": "echelon10", "name": "Saucony Echelon 10", "brand": "Saucony", "activities": ["walking"], "support": ["neutral"], "cushion": "medium", "feel": "bouncy-firm", "speed": ["daily"], "volume": "high", "toebox": "standard", "widths": ["standard", "wide"], "note": "Stable, roomy, orthotic-friendly — built for all-day feet.", "linkM": "https://amzn.to/4eKxnSU", "linkW": "https://amzn.to/44CJTz6", "price": 155},
+  {"id": "kinvara16", "name": "Saucony Kinvara 16", "brand": "Saucony", "activities": ["running"], "support": ["neutral"], "cushion": "low", "feel": "firm-low", "speed": ["daily", "tempo"], "volume": "low", "toebox": "standard", "widths": ["standard"], "note": "Low, light and flexible — natural ground feel for quicker days.", "linkM": "https://amzn.to/4xUJ7en", "linkW": "https://amzn.to/4aMQzOT", "price": 130},
+  {"id": "bondi9", "name": "Hoka Bondi 9", "brand": "Hoka", "activities": ["walking", "standing"], "support": ["neutral", "supportive-neutral"], "cushion": "max", "feel": "in-between", "speed": ["daily"], "volume": "high", "toebox": "standard", "widths": ["standard", "wide"], "note": "Maximum cushion with a smooth roll — easy on tired legs.", "linkM": "https://amzn.to/4gcWVKT", "linkW": "https://amzn.to/3T8iUsC", "price": 175},
+  {"id": "arahi8", "name": "Hoka Arahi 8", "brand": "Hoka", "activities": ["running", "walking"], "support": ["stability"], "cushion": "high", "feel": "bouncy-firm", "speed": ["daily"], "volume": "low", "toebox": "standard", "widths": ["standard", "wide"], "note": "Light stability, well-cushioned — support without the weight.", "linkM": "https://amzn.to/4v0qrab", "linkW": "https://amzn.to/43Z9ulH", "price": 150},
+  {"id": "gaviota", "name": "Hoka Gaviota", "brand": "Hoka", "activities": ["running", "walking", "standing"], "support": ["stability"], "cushion": "high", "feel": "in-between", "speed": ["daily"], "volume": "high", "toebox": "wide", "widths": ["standard", "wide"], "note": "Maximum stability with a roomy fit — great for standing all day.", "linkM": "https://amzn.to/4xTkzSO", "linkW": "https://amzn.to/4gHD8mU", "price": 180},
+  {"id": "gelcumulus28", "name": "Asics Gel-Cumulus 28", "brand": "Asics", "activities": ["running", "walking"], "support": ["neutral"], "cushion": "high", "feel": "in-between", "speed": ["daily"], "volume": "standard", "toebox": "standard", "widths": ["standard", "wide"], "note": "Lively, balanced daily trainer with a roomy upper.", "linkM": "https://amzn.to/4uZ3zId", "linkW": "https://amzn.to/3T8jl6e", "price": 145},
+  {"id": "gelnimbus28", "name": "Asics Gel-Nimbus 28", "brand": "Asics", "activities": ["running", "walking", "standing"], "support": ["neutral", "supportive-neutral"], "cushion": "max", "feel": "plush", "speed": ["daily"], "volume": "standard", "toebox": "standard", "widths": ["standard", "wide"], "note": "Max-cushion comfort, firmer than it looks — long easy miles.", "linkM": "https://amzn.to/4xRoIXH", "linkW": "https://amzn.to/3SBi8nU", "price": 170},
+  {"id": "novablast6", "name": "Asics Novablast 6", "brand": "Asics", "activities": ["running"], "support": ["neutral"], "cushion": "high", "feel": "in-between", "speed": ["daily", "tempo"], "volume": "standard", "toebox": "standard", "widths": ["standard", "wide"], "note": "Bouncy and fun — light enough for faster days.", "linkM": "https://amzn.to/4g9GdMp", "linkW": "https://amzn.to/4vzDtN1", "price": 155},
+  {"id": "gt200014", "name": "Asics Gt-2000 14", "brand": "Asics", "activities": ["running", "walking"], "support": ["stability"], "cushion": "medium", "feel": "bouncy-firm", "speed": ["daily"], "volume": "low", "toebox": "standard", "widths": ["standard", "wide"], "note": "Versatile, lighter stability with a comfortable ride.", "linkM": "https://amzn.to/4eS8On8", "linkW": "https://amzn.to/4eCxXDu", "price": 140},
+  {"id": "gelkayano33", "name": "Asics Gel-Kayano 33", "brand": "Asics", "activities": ["running", "walking", "standing"], "support": ["stability"], "cushion": "high", "feel": "plush", "speed": ["daily"], "volume": "standard", "toebox": "standard", "widths": ["standard", "wide"], "note": "Plush, structured stability for long miles and all-day wear.", "linkM": "https://amzn.to/4whODGj", "linkW": "https://amzn.to/4g8Pcxl", "price": 170},
+  {"id": "waverider30", "name": "Mizuno Wave Rider 30", "brand": "Mizuno", "activities": ["running", "walking"], "support": ["neutral"], "cushion": "high", "feel": "in-between", "speed": ["daily"], "volume": "low", "toebox": "standard", "widths": ["standard", "wide"], "note": "Firm, stable, durable daily trainer — great value.", "linkM": "https://amzn.to/4eNs84P", "linkW": "https://amzn.to/4xRph3L", "price": 150},
+  {"id": "wavesky9", "name": "Mizuno Wave Sky 9", "brand": "Mizuno", "activities": ["running", "walking", "standing"], "support": ["neutral", "supportive-neutral"], "cushion": "high", "feel": "plush", "speed": ["daily"], "volume": "standard", "toebox": "standard", "widths": ["standard", "wide"], "note": "High cushion with a firmer, springier feel for standing.", "linkM": "https://amzn.to/4aoCpmL", "linkW": "https://amzn.to/4v0mWAD", "price": 180},
+  {"id": "waveinspire22", "name": "Mizuno Wave Inspire 22", "brand": "Mizuno", "activities": ["running", "walking"], "support": ["stability"], "cushion": "medium", "feel": "bouncy-firm", "speed": ["daily"], "volume": "low", "toebox": "standard", "widths": ["standard", "wide"], "note": "Moderate stability with a guided, durable ride.", "linkM": "https://amzn.to/4xWnaLO", "linkW": "https://amzn.to/4audCO7", "price": 150},
 ];
 
-/* ================================================================
-   RECOMMENDATION LOGIC  —  ALSO BILLY'S PART (for later)
-   ----------------------------------------------------------------
-   Right now this just shows the user's answers back to them as a
-   placeholder. When Billy has the mapping ("if Wide + Low arch +
-   Road -> these shoes"), put that logic inside getRecommendation()
-   and return the shoe(s) to display. Affiliate links go in here too.
-   ================================================================ */
-function getRecommendation(answers) {
-  // answers is an object like { use:"Road running", width:"Wide", ... }
-  // TODO (Billy): replace this placeholder with real shoe matching.
+/* ---------------- QUESTIONS ---------------- */
+const Q = {
+  activity:{ q:"What are these shoes mainly for?", help:"This sets everything else \u2014 a marathoner and someone on their feet all day need different shoes.",
+    options:[{v:'running',t:"Running"},{v:'walking',t:"Walking"},{v:'standing',t:"On my feet all day",s:"Work / standing"}]},
+  experience:{ q:"What's your running like?", help:"Changes how much cushion and how light a shoe you want.",
+    options:[{v:'new',t:"Just getting started",s:"Building the habit"},{v:'regular',t:"Regular, steady miles"},
+      {v:'speed',t:"Speed &amp; tempo work",s:"I like it fast"},{v:'race',t:"Training for a race"}]},
+  raceDistance:{ q:"How far are you racing?", help:"Marathon training leans lighter, springier and higher-cushion than a first 5K.",
+    options:[{v:'short',t:"5K / 10K"},{v:'long',t:"Half or full marathon"}]},
+  /* PARKED \u2014 re-add 'surface' to the running flow in getFlow() once trail shoes exist. */
+  surface:{ q:"Where do you run most?", help:"Treadmill is already cushioned; road is the default.",
+    options:[{v:'road',t:"Road / pavement"},{v:'treadmill',t:"Treadmill"},{v:'trail',t:"Trail / off-road"}]},
+  pains:{ q:"Anything tend to bug you after? (pick all that apply)", help:"Stack as many as you want \u2014 this is where the right shoe heads off the next flare-up.", multi:true,
+    options:[{v:'knee',t:"Knees"},{v:'hip',t:"Hips / IT band"},{v:'shin',t:"Shins"},{v:'arch',t:"Heel or arch",s:"Underfoot"},
+      {v:'ankle',t:"Ankles"},{v:'toe',t:"Toes / toenails",s:"Or front of the foot"},{v:'top',t:"Top of the foot"},
+      {v:'none',t:"Nothing \u2014 no issues",solo:true}]},
+  gait:{ q:"When your old shoes wear out, where's the wear?", help:"You don't need the word 'pronation' \u2014 just look at the sole of a beat-up pair.",
+    options:[{v:'outer',t:"Outer edge"},{v:'even',t:"Pretty even"},{v:'inner',t:"Inner edge",s:"Toward the arch; ankles roll in"},{v:'unsure',t:"Can't tell"}]},
+  feel:{ q:"How do you like a shoe to feel?", help:"We'll center your three picks around this.",
+    options:[{v:'plush',t:"Soft &amp; plush"},{v:'in-between',t:"Balanced"},{v:'bouncy-firm',t:"Firmer &amp; springy"},{v:'none',t:"No strong preference"}]},
+  width:{ q:"How's your foot width?", help:"If you've felt pinched or spilled over the sole, you're probably wider than standard.",
+    options:[{v:'narrow',t:"Narrow / low-volume"},{v:'standard',t:"Standard"},{v:'wide',t:"Wide / high-volume"}]},
+};
+
+/* ---------------- BRANCHING FLOW ---------------- */
+function getFlow(a){
+  const flow=['activity'];
+  if(a.activity==='running'){
+    flow.push('experience');
+    if(a.experience==='race') flow.push('raceDistance');
+    flow.push('pains','gait','feel','width');   /* 'surface' parked */
+  } else if(a.activity==='walking'){ flow.push('pains','feel','width');
+  } else if(a.activity==='standing'){ flow.push('pains','width'); }
+  return flow;
+}
+
+/* ---------------- NAVIGATION (pure, testable) ---------------- */
+function navCurrentId(st){
+  const f=getFlow(st.answers);
+  for(const id of f){
+    if(Q[id].multi){ if(!st.committed.has(id)) return id; }
+    else if(!(id in st.answers)) return id;
+  }
   return null;
 }
-
-/* ================================================================
-   QUIZ ENGINE  —  you shouldn't need to touch anything below here.
-   ================================================================ */
-const body      = document.getElementById('quizBody');
-const fill      = document.getElementById('progressFill');
-const count     = document.getElementById('progressCount');
-const backBtn   = document.getElementById('backBtn');
-const progress  = document.getElementById('progressWrap');
-const navRow    = document.getElementById('quizNav');
-
-let step = 0;
-const answers = {};
-
-function renderQuestion() {
-  const q = QUESTIONS[step];
-  progress.style.display = 'flex';
-  navRow.style.display = 'flex';
-
-  fill.style.width = ((step) / QUESTIONS.length * 100) + '%';
-  count.textContent = (step + 1) + ' / ' + QUESTIONS.length;
-
-  let html = '<div class="q-text">' + q.text + '</div>';
-  if (q.help) html += '<div class="q-help">' + q.help + '</div>';
-  html += '<div class="options">';
-  q.options.forEach(function(opt, i){
-    html += '<button class="option" data-val="' + opt.value + '">' + opt.label + '</button>';
-  });
-  html += '</div>';
-  body.innerHTML = html;
-
-  // wire up the option buttons
-  body.querySelectorAll('.option').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      answers[q.id] = btn.getAttribute('data-val');
-      step++;
-      if (step < QUESTIONS.length) { renderQuestion(); }
-      else { renderResult(); }
-    });
-  });
-
-  backBtn.disabled = (step === 0);
+function navPrune(st){                       // drop answers/path no longer reachable in the live flow
+  const f=getFlow(st.answers);
+  Object.keys(st.answers).forEach(id=>{ if(!f.includes(id)) delete st.answers[id]; });
+  [...st.committed].forEach(id=>{ if(!f.includes(id)) st.committed.delete(id); });
+  st.path = st.path.filter(id=>f.includes(id));
+}
+function navAnswer(st,id,value){ st.answers[id]=value; if(!st.path.includes(id)) st.path.push(id); navPrune(st); }
+function navCommit(st,id){ st.committed.add(id); if(!st.path.includes(id)) st.path.push(id); navPrune(st); }
+function navBack(st){
+  const last=st.path.pop();
+  if(last===undefined) return null;
+  if(Q[last] && Q[last].multi) st.committed.delete(last);   // re-open multi, keep selections
+  else delete st.answers[last];
+  navPrune(st);
+  return last;
 }
 
-function renderResult() {
-  fill.style.width = '100%';
-  progress.style.display = 'none';
-  navRow.style.display = 'none';
+/* ---------------- PROFILE ENGINE ---------------- */
+function computeProfile(a){
+  const pains=a.pains||[]; const has=p=>pains.includes(p);
+  let support='neutral';
+  if(has('knee')||has('hip')) support='supportive-neutral';
+  if(a.gait==='inner'||has('ankle')) support='stability';
 
-  const rec = getRecommendation(answers);
+  let cushion='high';
+  if(a.activity==='running'){
+    if(a.experience==='new')     cushion='high';      // beginners: forgiving cushion
+    if(a.experience==='regular') cushion='high';
+    if(a.experience==='speed')   cushion='medium';
+    if(a.experience==='race')    cushion=(a.raceDistance==='long')?'high':'medium';
+  } else if(a.activity==='standing'){ cushion='max';   // all-day = max cushion
+  } else { cushion='high'; }                            // walking
+  if(has('arch')) cushion=bump(cushion,+1);
+  if((has('knee')||has('hip')) && rank(cushion)<rank('high')) cushion='high';
 
-  let html = '<div class="result">';
+  const feelExplicit = !!(a.feel && a.feel!=='none');
+  let feel = feelExplicit ? a.feel : null;
+  if(has('shin') && (feel==='plush'||feel===null)) feel='bouncy-firm';
+  if((has('knee')||has('hip')) && feel===null) feel='bouncy-firm';
 
-  if (rec) {
-    // (Billy's real recommendation will render here later)
-    html += '<div class="badge">Your match</div>';
-    html += '<h3>' + rec + '</h3>';
-  } else {
-    // PLACEHOLDER shown until Billy's logic is added
-    html += '<div class="badge">Demo — recommendation logic coming</div>';
-    html += '<h3>Here\'s where your shoe match appears.</h3>';
-    html += '<p>This is the placeholder result. Billy\'s real fitting logic ' +
-            'and shoe picks plug in right here. For now, here\'s what you told us:</p>';
-    html += '<div class="answers">';
-    QUESTIONS.forEach(function(q){
-      html += '<div class="a-row"><span>' + q.text + '</span><span>' +
-              (answers[q.id] || '—') + '</span></div>';
-    });
-    html += '</div>';
+  let speed='daily';
+  if(a.experience==='speed') speed='tempo';
+  if(a.experience==='race')  speed='race';
+
+  return {activity:a.activity, surface:a.surface||null, support, cushion, feel, feelExplicit, speed,
+          volumeNeed: has('top')?'high':null, toeRoom: has('toe'), width:a.width||'standard',
+          treadmill:a.surface==='treadmill', standing:a.activity==='standing'};
+}
+function rank(c){ return {low:0,medium:1,high:2,max:3}[c]; }
+function bump(c,n){ const o=['low','medium','high','max']; return o[Math.max(0,Math.min(3,rank(c)+n))]; }
+
+/* ---------------- SELECT THE TRIO ---------------- */
+function selectTrio(p){
+  let base = SHOES.filter(s=>s.activities.includes(p.activity));
+  if(p.width==='wide'){ const w=base.filter(s=>s.widths.includes('wide')||s.toebox==='wide'); if(w.length>=3) base=w; }
+
+  let pool = base.filter(s=>s.support.includes(p.support));
+  if(pool.length<3){
+    let extra;
+    if(p.support==='stability')               extra = SHOES.filter(s=>s.support.includes('stability') && !pool.includes(s)); // any activity: a stability shoe stays a stability shoe
+    else if(p.support==='supportive-neutral') extra = base.filter(s=>s.support.includes('neutral') && !pool.includes(s));
+    else                                      extra = base.filter(s=>!pool.includes(s));
+    pool = pool.concat(extra);
   }
+  if(pool.length<3) pool = (base.length>=3 ? base : SHOES.filter(s=>s.activities.includes(p.activity)));
 
-  html += '<button class="restart" id="restartBtn">Start over</button>';
-  html += '</div>';
-  body.innerHTML = html;
+  const score=s=>{
+    let sc=0;
+    sc -= 1.5*Math.abs(rank(s.cushion)-rank(p.cushion));
+    if(s.support.includes(p.support)) sc+=3;
+    if(p.speed && s.speed.includes(p.speed)) sc+=2;
+    if(p.feel && s.feel===p.feel) sc+=(p.feelExplicit?2:1);
+    if(p.toeRoom && s.toebox==='wide') sc+=1;
+    if(p.volumeNeed==='high'){ if(s.volume==='high')sc+=3; else if(s.volume==='low')sc-=4; else sc-=1; }
+    if(p.width==='narrow'){ if(s.volume==='high')sc-=2; if(s.volume==='low')sc+=1.5; }
+    if(p.width==='wide'){   if(s.volume==='high')sc+=1.5; if(s.volume==='low')sc-=1; }
+    return sc;
+  };
+  const scored = pool.map(s=>[score(s),s]).sort((a,b)=>b[0]-a[0]).map(x=>x[1]);
 
-  document.getElementById('restartBtn').addEventListener('click', restart);
+  const trio=[], feels=new Set(), brands=new Set();
+  const add=s=>{ trio.push(s); feels.add(s.feel); brands.add(s.brand); };
+  if(p.feel && p.feelExplicit){ const L=scored.find(s=>s.feel===p.feel); if(L) add(L); }   // honor stated feel as the lead
+  const take=(nf,nb)=>{ for(const s of scored){ if(trio.includes(s))continue;
+      if(nf&&feels.has(s.feel))continue; if(nb&&brands.has(s.brand))continue; add(s); return true; } return false; };
+  while(trio.length<3){
+    if(take(true,true))continue; if(take(true,false))continue;
+    if(take(false,true))continue; if(take(false,false))continue; break;
+  }
+  return trio.slice(0,3);
 }
 
-function restart() {
-  step = 0;
-  for (const k in answers) delete answers[k];
-  renderQuestion();
+/* ---------------- RESULT COPY ---------------- */
+function readTitle(p){
+  if(p.standing) return 'All-Day Cushion';
+  if(p.activity==='walking') return 'Cushioned Walking Shoe';
+  const tier=p.support==='stability'?'Stability ':(p.support==='supportive-neutral'?'Supportive ':'');
+  const c={low:'Low',medium:'Moderate',high:'High',max:'Max'}[p.cushion];
+  return `${tier}${c}-Cushion Trainer`;
+}
+function readWhy(p){
+  let bit;
+  if(p.support==='stability') bit="your wear pattern points to your foot rolling in, so you want guidance that keeps everything aligned";
+  else if(p.support==='supportive-neutral') bit="you don't need a posted stability shoe, but a firmer, structured cushion keeps strain from travelling up to your knees and hips";
+  else bit="a neutral shoe \u2014 nothing's pushing you toward a stability build";
+  if(p.standing) return "On your feet all day, you want plenty of cushion and a smooth roll \u2014 and remember feet swell, so don't size too small.";
+  const c={low:'low',medium:'moderate',high:'high',max:'max'}[p.cushion];
+  return `Going off how you run and what bugs you: ${bit}, at a ${c}-cushion level.`;
+}
+const SPECTRUM={plush:18,'in-between':46,'bouncy-firm':74,'firm-low':88};
+
+/* ================= QUIZ RUNNER ================= */
+const st = { answers:{}, path:[], committed:new Set() };
+const card=document.getElementById('card'), result=document.getElementById('result');
+const elText=document.getElementById('qtext'), elHelp=document.getElementById('qhelp'),
+      elOpts=document.getElementById('opts'), elCount=document.getElementById('qcount'),
+      elBar=document.getElementById('bar'), elBack=document.getElementById('back'), elNext=document.getElementById('next');
+
+function render(forceId){
+  const id = forceId || navCurrentId(st);
+  if(id===null){ finish(); return; }
+  card.classList.remove('hidden'); result.classList.add('hidden');   // single source of truth for visibility
+  const def=Q[id], flow=getFlow(st.answers), pos=Math.max(0,flow.indexOf(id));
+  elCount.textContent=`${pos+1} / ~${flow.length}`;
+  elBar.style.width=`${pos/flow.length*100}%`;
+  elText.innerHTML=def.q; elHelp.innerHTML=def.help;
+  elBack.disabled = st.path.length===0;
+  elOpts.innerHTML='';
+  const current=st.answers[id];
+  def.options.forEach(o=>{
+    const b=document.createElement('button'); b.className='option'; b.type='button';
+    const picked=def.multi?(current||[]).includes(o.v):current===o.v;
+    if(picked) b.classList.add('sel');
+    b.innerHTML=(def.multi?`<span class="tick"></span>`:'')+`<span><span>${o.t}</span>${o.s?`<small>${o.s}</small>`:''}</span>`;
+    b.onclick=()=>choose(id,def,o);
+    elOpts.appendChild(b);
+  });
+  if(def.multi){ elNext.classList.remove('hidden'); elNext.textContent='Continue \u2192'; elNext.disabled=!(current&&current.length); }
+  else elNext.classList.add('hidden');
 }
 
-backBtn.addEventListener('click', function(){
-  if (step > 0) { step--; renderQuestion(); }
-});
+function choose(id,def,o){
+  if(def.multi){
+    let cur=st.answers[id]||[];
+    if(o.solo){ cur=cur.includes(o.v)?[]:[o.v]; }
+    else { cur=cur.filter(v=>v!=='none'); cur.includes(o.v)?cur=cur.filter(v=>v!==o.v):cur.push(o.v); }
+    st.answers[id]=cur; render(id);                 // stay on this question, show the toggles
+  } else {
+    navAnswer(st,id,o.v);
+    render(id);                                     // flash the selection on this question...
+    setTimeout(()=>render(),130);                   // ...then advance once
+  }
+}
+elNext.onclick=()=>{ const id=navCurrentId(st); if(id && Q[id].multi){ navCommit(st,id); render(); } };
+elBack.onclick=()=>{ navBack(st); render(); };       // visibility handled by render()
 
-// start the quiz
-renderQuestion();
+function finish(){
+  const p=computeProfile(st.answers), trio=selectTrio(p);
+  elBar.style.width='100%';
+  const callouts=[];
+  if(p.toeRoom) callouts.push(`<div class="callout"><b>On your toes:</b> go up a half size and look for room up front \u2014 fine as long as the heel and midfoot stay locked. Altra, New Balance and Brooks run roomier up front.</div>`);
+  if(p.width==='wide') callouts.push(`<div class="callout"><b>On your width:</b> grab the <b>wide (2E)</b> version where it's offered \u2014 most of these come in true wide sizes.</div>`);
+  if(p.width==='narrow') callouts.push(`<div class="callout"><b>On your width:</b> you'll usually do best in a lower-volume, snugger fit \u2014 these picks lean that way.</div>`);
+  if(p.volumeNeed==='high') callouts.push(`<div class="callout"><b>Top-of-foot pressure:</b> steered you toward roomier-volume shoes and away from the low-volume builds that tend to bite there.</div>`);
+  if(p.standing) callouts.push(`<div class="callout"><b>Heads up:</b> your feet swell over a long day \u2014 fit later in the day or leave a little room so they're not tight by hour ten.</div>`);
+  if(p.treadmill) callouts.push(`<div class="callout"><b>Treadmill note:</b> the deck's already cushioned, so you can lean a touch firmer than on pavement.</div>`);
+
+  const feelLabel={plush:'Softest','in-between':'In between','bouncy-firm':'Firmer & springy','firm-low':'Low & firm'};
+  const picks=trio.map(s=>{
+    const m=s.linkM?`<a class="shop" href="${s.linkM}" target="_blank" rel="noopener">Shop men's \u2192</a>`:'';
+    const w=s.linkW?`<a class="shop alt" href="${s.linkW}" target="_blank" rel="noopener">Shop women's \u2192</a>`:'';
+    return `<div class="pick"><div class="pick-top"><span class="name">${s.name}</span><span class="tag">${feelLabel[s.feel]||''}</span></div>
+      <div class="pwhy">${s.note}</div>${s.price?`<div class="price">Around $${s.price}</div>`:''}
+      <div class="shop-row">${m}${w}</div></div>`;
+  }).join('');
+
+  const markerFeel=p.feel||(trio[0]?trio[0].feel:'in-between');
+  result.innerHTML=`<div class="kicker" style="color:var(--accent)">Your fit read</div><h3 class="arch">${readTitle(p)}</h3>
+    <p class="why">${readWhy(p)}</p>
+    <div class="res-spectrum"><div class="spectrum-bar"><span class="spectrum-marker" style="left:${SPECTRUM[markerFeel]||46}%"></span></div>
+      <div class="spectrum-labels"><b>Soft &amp; cushioned</b><span>Balanced</span><b>Firm &amp; responsive</b></div></div>
+    ${callouts.join('')}<div class="picks-h">Your three to try</div>${picks}
+    <div class="tradeoff"><b>Why three?</b> On the floor you'd lace up a spread and feel the difference. Start with the one whose feel sounds most like you \u2014 they're all right for how you move.</div>
+    <div class="disc">Some links are affiliate links \u2014 they never change which shoe we recommend. These are guidance, not medical advice; see a professional for a foot injury or condition.</div>
+    <button class="restart" id="restart">\u21ba Start over</button>`;
+  card.classList.add('hidden'); result.classList.remove('hidden');
+  document.getElementById('restart').onclick=()=>{
+    st.answers={}; st.path.length=0; st.committed.clear();
+    render(); document.getElementById('quiz').scrollIntoView();
+  };
+  result.scrollIntoView({behavior:'smooth',block:'start'});
+}
+render();
 
 // slide the hero gauge marker in on load (skipped if reduced-motion)
 window.addEventListener('load', function(){
