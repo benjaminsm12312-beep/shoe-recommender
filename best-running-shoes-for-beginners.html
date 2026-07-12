@@ -98,6 +98,25 @@
 
   .intro-hook{font-size:18px;color:var(--ink);margin-bottom:16px;line-height:1.5;}
   .intro-hook strong{color:var(--accent-deep);}
+
+  /* --- shoe thumbnails on pick blocks --- */
+  .pick-top{align-items:center;}
+  .pick-name-row{display:flex;align-items:center;gap:14px;min-width:0;flex:1;}
+  .pick-thumb{width:64px;height:64px;object-fit:contain;flex-shrink:0;background:var(--paper-2);border-radius:10px;padding:4px;}
+  /* --- editorial hero montage --- */
+  .hero-shelf{background:linear-gradient(180deg,var(--paper-2) 0%,var(--paper) 100%);border:1px solid var(--line);border-radius:20px;padding:30px 24px 26px;margin:26px 0 12px;text-align:center;}
+  .shelf-label{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:22px;}
+  .shelf-label b{color:var(--accent);}
+  .shelf-images{display:flex;justify-content:center;align-items:flex-end;gap:18px;flex-wrap:wrap;}
+  .shelf-images img{width:150px;height:110px;object-fit:contain;transition:transform .25s;}
+  .shelf-images img:nth-child(2){width:190px;height:140px;transform:translateY(-10px);}
+  .shelf-images img:hover{transform:translateY(-4px) scale(1.03);}
+  .shelf-images img:nth-child(2):hover{transform:translateY(-14px) scale(1.03);}
+  @media(max-width:560px){.shelf-images img,.shelf-images img:nth-child(2){width:100px;height:80px;transform:none;}}
+  /* --- wide-toe-box .card variant thumbnail --- */
+  .card-top{display:flex;align-items:center;gap:14px;}
+  .card-thumb{width:64px;height:64px;object-fit:contain;flex-shrink:0;background:var(--paper-2);border-radius:10px;padding:4px;}
+  .card-top h2{flex:1;min-width:0;}
 </style>
 </head>
 <body>
@@ -119,51 +138,55 @@
 <div class="sib-nav"><div class="sib-label">Guides:</div><a href="best-running-shoes-for-overpronation.html">Overpronation & Flat Feet</a><a href="best-running-shoes-for-plantar-fasciitis.html">Plantar Fasciitis</a><a href="best-cushioned-running-shoes.html">Cushioned</a><a href="best-shoes-for-standing-all-day.html">Standing All Day</a><a href="best-running-shoes-for-wide-feet.html">Wide Feet</a><a href="best-running-shoes-wide-toe-box.html">Wide Toe Box</a><a href="best-running-shoes-for-speed-and-tempo.html">Speed & Tempo</a><a href="best-running-shoes-for-beginners.html" class="sib-active">Beginners</a><a href="best-walking-shoes.html">Walking</a></div>
 </div></section>
 
+<section class="wrap"><div class="hero-shelf">
+  <div class="shelf-label">Featured picks &middot; <b>Top three for Beginners</b></div>
+  <div class="shelf-images"><img src="shoe_images/ghost18.png" alt="Brooks Ghost 18" loading="lazy" /><img src="shoe_images/880v15.png" alt="New Balance 880 v15" loading="lazy" /><img src="shoe_images/ride19.png" alt="Saucony Ride 19" loading="lazy" /></div>
+</div></section>
 <section class="picks"><div class="wrap">
 <div class="pick">
-      <div class="pick-top"><span class="name">Brooks Ghost 18</span><span class="tag">Firmer & springy</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/ghost18.png" alt="Brooks Ghost 18" loading="lazy" /><span class="name">Brooks Ghost 18</span></div><span class="tag">Firmer & springy</span></div>
       <div class="best">From everyday wear to training for your first race, the Ghost handles it all!</div>
       <div class="body">The Ghost is the shoe for somebody that wants a bouncy cushion that isn't too plushy yet will keep the feet happy for a long walk, or a couple miles on the greenway. Overall, a smooth, predictable shoe that works for many everyday or running applications.</div>
       <div class="protip"><b>Pro tip:</b> True to size, the heel is slightly more secure than some of its competitors.</div>
       <div class="price">Around $150</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4eP4NzP" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/440CnOm" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">New Balance 880 v15</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/880v15.png" alt="New Balance 880 v15" loading="lazy" /><span class="name">New Balance 880 v15</span></div><span class="tag">Balanced</span></div>
       <div class="best">A softer medium-cushion shoe great for daily miles, or frequent walks!</div>
       <div class="body">The 880 is a great medium-cushion trainer for a ton of activities, excelling as a daily trainer and a walking shoe. The cushion is a soft but bouncy foam, giving you a nice spongy feel with plenty of springiness if you plan to lace up for a run.</div>
       <div class="protip"><b>Pro tip:</b> New Balance is a wider-fitting brand so expect some more room vs other brands. If you are familiar with New Balance, the 880 will fit slightly more snug than similar New Balance models.</div>
       <div class="price">Around $150</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4p3byTq" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4v9MAmt" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Saucony Ride 19</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/ride19.png" alt="Saucony Ride 19" loading="lazy" /><span class="name">Saucony Ride 19</span></div><span class="tag">Balanced</span></div>
       <div class="best">A medium-cushion shoe best suited for daily training.</div>
       <div class="body">The Ride is a bouncy shoe that does a great job handling daily miles, an easy run, or running your first 5k. The shoe has a little more cushion in the heel so it will feel nice and soft, but it is very springy for your toe off.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, with a wider toe box and a more secure heel.</div>
       <div class="price">Around $145</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4xRnvj7" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/44J2JVb" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Asics Gel-Cumulus 28</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/gelcumulus28.png" alt="Asics Gel-Cumulus 28" loading="lazy" /><span class="name">Asics Gel-Cumulus 28</span></div><span class="tag">Balanced</span></div>
       <div class="best">A medium-cushion shoe great for daily miles or everyday activities.</div>
       <div class="body">The Gel-Cumulus is great because it has plenty of cushion for your everyday running, yet it sits closer to the ground than many other shoes. This lets you be closer to the ground with no loss of cushion, all thanks to the gel Asics uses in their shoes. The Cumulus is a great option for daily training, walking, or just wearing to the grocery store.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size.</div>
       <div class="price">Around $145</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4uZ3zId" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/3T8jl6e" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Mizuno Wave Rider 30</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/waverider30.png" alt="Mizuno Wave Rider 30" loading="lazy" /><span class="name">Mizuno Wave Rider 30</span></div><span class="tag">Balanced</span></div>
       <div class="best">A medium-cushion shoe great for daily mileage.</div>
       <div class="body">The Wave Rider is a medium-cushion shoe with a softer foam for somebody that wants a comfortable fit for their daily miles. This shoe is a great neutral runner with a little bit more cushion than other similar stack options.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, with a slightly narrower fit.</div>
       <div class="price">Around $150</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4eNs84P" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4xRph3L" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">New Balance Rebel v5</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/rebelv5.png" alt="New Balance Rebel v5" loading="lazy" /><span class="name">New Balance Rebel v5</span></div><span class="tag">Balanced</span></div>
       <div class="best">A lightweight bouncy shoe great for many running situations.</div>
       <div class="body">The Rebel has a very soft foam making it a super comfortable option for easy long runs. It does also have a ton of pop off the toe and with its lightweight design it also excels as a faster tempo/speedwork shoe.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, more snug than other New Balance shoes.</div>
       <div class="price">Around $145</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4bgp28m" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/3RbXmuH" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">On Cloudsurfer 2</span><span class="tag">Softest</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/cloudsurfer2.png" alt="On Cloudsurfer 2" loading="lazy" /><span class="name">On Cloudsurfer 2</span></div><span class="tag">Softest</span></div>
       <div class="best">A soft shoe great for daily miles or frequent walking.</div>
       <div class="body">The Cloudsurfer is a great option if you want a spongier medium-cushion shoe. This shoe does not have the Speedboard found in many other On shoes, which makes it much softer. A good choice for daily running, training for your first 5k, or for your regular walks.</div>
       <div class="protip"><b>Pro tip:</b> Runs a little short.</div>

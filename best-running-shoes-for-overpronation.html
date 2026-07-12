@@ -98,6 +98,25 @@
 
   .intro-hook{font-size:18px;color:var(--ink);margin-bottom:16px;line-height:1.5;}
   .intro-hook strong{color:var(--accent-deep);}
+
+  /* --- shoe thumbnails on pick blocks --- */
+  .pick-top{align-items:center;}
+  .pick-name-row{display:flex;align-items:center;gap:14px;min-width:0;flex:1;}
+  .pick-thumb{width:64px;height:64px;object-fit:contain;flex-shrink:0;background:var(--paper-2);border-radius:10px;padding:4px;}
+  /* --- editorial hero montage --- */
+  .hero-shelf{background:linear-gradient(180deg,var(--paper-2) 0%,var(--paper) 100%);border:1px solid var(--line);border-radius:20px;padding:30px 24px 26px;margin:26px 0 12px;text-align:center;}
+  .shelf-label{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:22px;}
+  .shelf-label b{color:var(--accent);}
+  .shelf-images{display:flex;justify-content:center;align-items:flex-end;gap:18px;flex-wrap:wrap;}
+  .shelf-images img{width:150px;height:110px;object-fit:contain;transition:transform .25s;}
+  .shelf-images img:nth-child(2){width:190px;height:140px;transform:translateY(-10px);}
+  .shelf-images img:hover{transform:translateY(-4px) scale(1.03);}
+  .shelf-images img:nth-child(2):hover{transform:translateY(-14px) scale(1.03);}
+  @media(max-width:560px){.shelf-images img,.shelf-images img:nth-child(2){width:100px;height:80px;transform:none;}}
+  /* --- wide-toe-box .card variant thumbnail --- */
+  .card-top{display:flex;align-items:center;gap:14px;}
+  .card-thumb{width:64px;height:64px;object-fit:contain;flex-shrink:0;background:var(--paper-2);border-radius:10px;padding:4px;}
+  .card-top h2{flex:1;min-width:0;}
 </style>
 </head>
 <body>
@@ -119,79 +138,83 @@
 <div class="sib-nav"><div class="sib-label">Guides:</div><a href="best-running-shoes-for-overpronation.html" class="sib-active">Overpronation & Flat Feet</a><a href="best-running-shoes-for-plantar-fasciitis.html">Plantar Fasciitis</a><a href="best-cushioned-running-shoes.html">Cushioned</a><a href="best-shoes-for-standing-all-day.html">Standing All Day</a><a href="best-running-shoes-for-wide-feet.html">Wide Feet</a><a href="best-running-shoes-wide-toe-box.html">Wide Toe Box</a><a href="best-running-shoes-for-speed-and-tempo.html">Speed & Tempo</a><a href="best-running-shoes-for-beginners.html">Beginners</a><a href="best-walking-shoes.html">Walking</a></div>
 </div></section>
 
+<section class="wrap"><div class="hero-shelf">
+  <div class="shelf-label">Featured picks &middot; <b>Top three for Overpronation & Stability</b></div>
+  <div class="shelf-images"><img src="shoe_images/adrenalinegts25.png" alt="Brooks Adrenaline GTS 25" loading="lazy" /><img src="shoe_images/guide19.png" alt="Saucony Guide 19" loading="lazy" /><img src="shoe_images/gt200014.png" alt="Asics Gt-2000 14" loading="lazy" /></div>
+</div></section>
 <section class="picks"><div class="wrap">
 <div class="pick">
-      <div class="pick-top"><span class="name">Brooks Adrenaline GTS 25</span><span class="tag">Firmer & springy</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/adrenalinegts25.png" alt="Brooks Adrenaline GTS 25" loading="lazy" /><span class="name">Brooks Adrenaline GTS 25</span></div><span class="tag">Firmer & springy</span></div>
       <div class="best">A supportive daily shoe great for running or walking.</div>
       <div class="body">The Adrenaline adds guiderails to their bouncy nitrogen-infused cushion which improves ankle stability. This is a great option if you pronate or supinate as it will help guide your feet into the right gait.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, has a slightly more secure heel.</div>
       <div class="price">Around $155</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4v6tk9F" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/3Rf4CWF" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Saucony Guide 19</span><span class="tag">Firmer & springy</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/guide19.png" alt="Saucony Guide 19" loading="lazy" /><span class="name">Saucony Guide 19</span></div><span class="tag">Firmer & springy</span></div>
       <div class="best">A medium-cushion daily shoe that fits all your stability needs.</div>
       <div class="body">The Guide utilizes Saucony's relatively new guiderail technology to keep your ankles stable and moving the way you need them to. This medium-cushion trainer performs great as a daily trainer or for your neighborhood walks. It's a great pick for someone looking for a shoe that is a little bouncier than it is soft, and is looking for some great support.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, with a slightly roomier toe box.</div>
       <div class="price">Around $150</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4exSnNS" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4f8Xi8a" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Asics Gt-2000 14</span><span class="tag">Firmer & springy</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/gt200014.png" alt="Asics Gt-2000 14" loading="lazy" /><span class="name">Asics Gt-2000 14</span></div><span class="tag">Firmer & springy</span></div>
       <div class="best">A supportive shoe great for daily training and walking.</div>
       <div class="body">The GT-2000 uses Asics 3D Guidance System to make sure your ankles are supported no matter the activity. This medium-cushion trainer is great for your daily mileage as well as walking the pups.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, with a slightly narrower toe box.</div>
       <div class="price">Around $140</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4eS8On8" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4eCxXDu" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Mizuno Wave Inspire 22</span><span class="tag">Firmer & springy</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/waveinspire22.png" alt="Mizuno Wave Inspire 22" loading="lazy" /><span class="name">Mizuno Wave Inspire 22</span></div><span class="tag">Firmer & springy</span></div>
       <div class="best">A supportive medium-cushion trainer great for daily training.</div>
       <div class="body">The Wave Inspire is a stability option great for training up to your first 5k, or for the same weekend run you've done for months. It's a medium-cushion option, using Mizuno's wave plate technology for a stable, close-to-the-ground feel.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, with a slightly narrower fit.</div>
       <div class="price">Around $150</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4xWnaLO" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4audCO7" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">New Balance 860 v15</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/860v15.png" alt="New Balance 860 v15" loading="lazy" /><span class="name">New Balance 860 v15</span></div><span class="tag">Balanced</span></div>
       <div class="best">A stable medium-cushion shoe great for running or walking.</div>
       <div class="body">The 860 uses the New Balance Stability Plane to ensure the right ankle movement when you're running or walking. The cushion is moderate and is a great option for somebody looking for a supportive shoe that is not too soft, but not too hard.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, a little on the wider side.</div>
       <div class="price">Around $150</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4exRODK" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4xVV5Ez" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Hoka Arahi 8</span><span class="tag">Firmer & springy</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/arahi8.png" alt="Hoka Arahi 8" loading="lazy" /><span class="name">Hoka Arahi 8</span></div><span class="tag">Firmer & springy</span></div>
       <div class="best">A medium-cushion shoe with a ton of support for daily miles.</div>
       <div class="body">The Arahi is a great option from Hoka for somebody with concerns about pronation or their ankle stability. It holds the heel and ankle in place very well, ensuring a proper movement through your gait. It is a moderate-cushion shoe with a foam leaning more to the bouncy side.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, but slightly narrower than other Hoka models.</div>
       <div class="price">Around $150</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4v0qrab" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/43Z9ulH" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Hoka Gaviota</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/gaviota.png" alt="Hoka Gaviota" loading="lazy" /><span class="name">Hoka Gaviota</span></div><span class="tag">Balanced</span></div>
       <div class="best">A high-cushion shoe with tons of support for running or walking.</div>
       <div class="body">The Gaviota is a stability shoe that is great for somebody looking for something with a little more cushion. This shoe will give the support you need for your daily miles or for your walking, with enough cushion to say the same.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, and has a very wide toe box.</div>
       <div class="price">Around $180</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4xTkzSO" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4gHD8mU" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Asics Gel-Kayano 33</span><span class="tag">Softest</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/gelkayano33.png" alt="Asics Gel-Kayano 33" loading="lazy" /><span class="name">Asics Gel-Kayano 33</span></div><span class="tag">Softest</span></div>
       <div class="best">A high-cushion stability shoe with a ton of great uses.</div>
       <div class="body">The Gel-Kayano uses Asics FluidSupport to hold your ankle steady in every step. This high-cushion stability shoe is great for daily miles, walking, or standing on your feet all day. The soft cushion of this shoe ensures a comfortable feel, and the support makes sure your ankles stay strong.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size.</div>
       <div class="price">Around $170</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4whODGj" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4g8Pcxl" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">On Cloudrunner 3</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/cloudrunner3.png" alt="On Cloudrunner 3" loading="lazy" /><span class="name">On Cloudrunner 3</span></div><span class="tag">Balanced</span></div>
       <div class="best">A medium-cushion shoe great for light running or daily wear.</div>
       <div class="body">The Cloudrunner is a slightly more stable shoe, helping your ankles stay supported through every step. It is great for somebody who doesn't run super often or wants a stylish, comfortable shoe for daily wear. The cushion is very balanced and blends nicely with the stability.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size.</div>
       <div class="price">Around $160</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4wkBegq" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/44E6k74" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Brooks Glycerin GTS 23</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/glyceringts23.png" alt="Brooks Glycerin GTS 23" loading="lazy" /><span class="name">Brooks Glycerin GTS 23</span></div><span class="tag">Balanced</span></div>
       <div class="best">A bouncy high-cushion shoe with great stability \u2014 great for long walks, long days on your feet, or a long run.</div>
       <div class="body">The Glycerin GTS is a great option for someone looking for a higher-cushion shoe that has a bouncier, springy feel vs a plushy soft feel. The GTS model has GuideRails to ensure your ankle is moving correctly through every step. A great shoe for your long runs, long walks with the dogs, or a long day on your feet.</div>
       <div class="protip"><b>Pro tip:</b> True to size, with a slightly wider toe box and a narrower heel.</div>
       <div class="price">Around $180</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4va0Iwk" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4borAkW" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Altra Torin ST</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/torinst.png" alt="Altra Torin ST" loading="lazy" /><span class="name">Altra Torin ST</span></div><span class="tag">Balanced</span></div>
       <div class="best">A medium-cushion stability shoe with your toes in mind.</div>
       <div class="body">The Torin ST gives you all the ankle support you need along with plenty of room for your toes to spread out. The cushion is very balanced, so it should give plenty of cushion for your daily miles or frequent walking.</div>
       <div class="protip"><b>Pro tip:</b> True to size, has a wide toe box and a more secure heel.</div>

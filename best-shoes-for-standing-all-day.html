@@ -98,6 +98,25 @@
 
   .intro-hook{font-size:18px;color:var(--ink);margin-bottom:16px;line-height:1.5;}
   .intro-hook strong{color:var(--accent-deep);}
+
+  /* --- shoe thumbnails on pick blocks --- */
+  .pick-top{align-items:center;}
+  .pick-name-row{display:flex;align-items:center;gap:14px;min-width:0;flex:1;}
+  .pick-thumb{width:64px;height:64px;object-fit:contain;flex-shrink:0;background:var(--paper-2);border-radius:10px;padding:4px;}
+  /* --- editorial hero montage --- */
+  .hero-shelf{background:linear-gradient(180deg,var(--paper-2) 0%,var(--paper) 100%);border:1px solid var(--line);border-radius:20px;padding:30px 24px 26px;margin:26px 0 12px;text-align:center;}
+  .shelf-label{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:22px;}
+  .shelf-label b{color:var(--accent);}
+  .shelf-images{display:flex;justify-content:center;align-items:flex-end;gap:18px;flex-wrap:wrap;}
+  .shelf-images img{width:150px;height:110px;object-fit:contain;transition:transform .25s;}
+  .shelf-images img:nth-child(2){width:190px;height:140px;transform:translateY(-10px);}
+  .shelf-images img:hover{transform:translateY(-4px) scale(1.03);}
+  .shelf-images img:nth-child(2):hover{transform:translateY(-14px) scale(1.03);}
+  @media(max-width:560px){.shelf-images img,.shelf-images img:nth-child(2){width:100px;height:80px;transform:none;}}
+  /* --- wide-toe-box .card variant thumbnail --- */
+  .card-top{display:flex;align-items:center;gap:14px;}
+  .card-thumb{width:64px;height:64px;object-fit:contain;flex-shrink:0;background:var(--paper-2);border-radius:10px;padding:4px;}
+  .card-top h2{flex:1;min-width:0;}
 </style>
 </head>
 <body>
@@ -119,86 +138,90 @@
 <div class="sib-nav"><div class="sib-label">Guides:</div><a href="best-running-shoes-for-overpronation.html">Overpronation & Flat Feet</a><a href="best-running-shoes-for-plantar-fasciitis.html">Plantar Fasciitis</a><a href="best-cushioned-running-shoes.html">Cushioned</a><a href="best-shoes-for-standing-all-day.html" class="sib-active">Standing All Day</a><a href="best-running-shoes-for-wide-feet.html">Wide Feet</a><a href="best-running-shoes-wide-toe-box.html">Wide Toe Box</a><a href="best-running-shoes-for-speed-and-tempo.html">Speed & Tempo</a><a href="best-running-shoes-for-beginners.html">Beginners</a><a href="best-walking-shoes.html">Walking</a></div>
 </div></section>
 
+<section class="wrap"><div class="hero-shelf">
+  <div class="shelf-label">Featured picks &middot; <b>Top three for Standing All Day</b></div>
+  <div class="shelf-images"><img src="shoe_images/glycerin23.png" alt="Brooks Glycerin 23" loading="lazy" /><img src="shoe_images/triumph24.png" alt="Saucony Triumph 24" loading="lazy" /><img src="shoe_images/bondi9.png" alt="Hoka Bondi 9" loading="lazy" /></div>
+</div></section>
 <section class="picks"><div class="wrap">
 <div class="pick">
-      <div class="pick-top"><span class="name">Brooks Glycerin 23</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/glycerin23.png" alt="Brooks Glycerin 23" loading="lazy" /><span class="name">Brooks Glycerin 23</span></div><span class="tag">Balanced</span></div>
       <div class="best">A bouncy high-cushion shoe great for long walks, long days on your feet, or a long run.</div>
       <div class="body">The Glycerin is a great option for someone looking for a higher-cushion shoe that has a bouncier, springy feel vs a plushy soft feel. It has a slightly roomier toe box, and has a secure heel to ensure no slipping. A great shoe for your long runs, long walks with the dogs, or a long day on your feet.</div>
       <div class="protip"><b>Pro tip:</b> True to size, with a slightly wider toe box and a narrower heel.</div>
       <div class="price">Around $175</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4y0GtDW" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4ePxTPD" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">New Balance 1080</span><span class="tag">Softest</span></div>
+      <div class="pick-top"><div class="pick-name-row"><span class="name">New Balance 1080</span></div><span class="tag">Softest</span></div>
       <div class="best">A plush high-cushion shoe great for an easy long run, frequent walks, or a long day on your feet.</div>
       <div class="body">The 1080 is a soft high-cushion shoe great for the next time you're on your feet for what feels like forever. It's a great option for somebody with a slightly wider foot and needs a long run shoe, a daily walking shoe, or a shoe for long days at work.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, slightly wider than competitors.</div>
       <div class="price">Around $170</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4wiKsdf" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4vG0z4Q" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Saucony Triumph 24</span><span class="tag">Softest</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/triumph24.png" alt="Saucony Triumph 24" loading="lazy" /><span class="name">Saucony Triumph 24</span></div><span class="tag">Softest</span></div>
       <div class="best">A high-cushion option great for long runs or regular walking.</div>
       <div class="body">The Triumph is a soft and spongy shoe that will keep your feet comfy all day. It's great as a walker, or work shoe due to its high cushion that has a very spongy feel. It also is a great distance running shoe as it has enough pep to keep you moving forward for your next long run.</div>
       <div class="protip"><b>Pro tip:</b> Fits a little long, and it also is wider.</div>
       <div class="price">Around $170</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4eDzTf0" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4aWBKJq" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Hoka Bondi 9</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/bondi9.png" alt="Hoka Bondi 9" loading="lazy" /><span class="name">Hoka Bondi 9</span></div><span class="tag">Balanced</span></div>
       <div class="best">A high-cushion shoe built for the long days on your feet.</div>
       <div class="body">The Bondi has a bouncier, more supportive cushion compared to a lot of the other soft and plushy high-cushion shoes. This makes it a great option for somebody who finds their ankles or feet sore after a long day in a plushy, soft shoe. The Bondi is a go-to for long walks, or for a job that requires a lot of standing.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size.</div>
       <div class="price">Around $175</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4gcWVKT" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/3T8iUsC" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Hoka Gaviota</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/gaviota.png" alt="Hoka Gaviota" loading="lazy" /><span class="name">Hoka Gaviota</span></div><span class="tag">Balanced</span></div>
       <div class="best">A high-cushion shoe with tons of support for running or walking.</div>
       <div class="body">The Gaviota is a stability shoe that is great for somebody looking for something with a little more cushion. This shoe will give the support you need for your daily miles or for your walking, with enough cushion to say the same.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, and has a very wide toe box.</div>
       <div class="price">Around $180</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4xTkzSO" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4gHD8mU" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Asics Gel-Nimbus 28</span><span class="tag">Softest</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/gelnimbus28.png" alt="Asics Gel-Nimbus 28" loading="lazy" /><span class="name">Asics Gel-Nimbus 28</span></div><span class="tag">Softest</span></div>
       <div class="best">A soft high-cushion shoe great for long runs, frequent walks, or long days on your feet.</div>
       <div class="body">The Gel-Nimbus uses Asics gel to make a super high-cushion spongy shoe that is great for keeping your feet comfortable. It's a great pick if you are searching for a shoe that is comfortable after hour ten at work, after mile twelve of your long run, or on your third walk of the day.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size.</div>
       <div class="price">Around $170</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4xRoIXH" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/3SBi8nU" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Asics Gel-Kayano 33</span><span class="tag">Softest</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/gelkayano33.png" alt="Asics Gel-Kayano 33" loading="lazy" /><span class="name">Asics Gel-Kayano 33</span></div><span class="tag">Softest</span></div>
       <div class="best">A high-cushion stability shoe with a ton of great uses.</div>
       <div class="body">The Gel-Kayano uses Asics FluidSupport to hold your ankle steady in every step. This high-cushion stability shoe is great for daily miles, walking, or standing on your feet all day. The soft cushion of this shoe ensures a comfortable feel, and the support makes sure your ankles stay strong.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size.</div>
       <div class="price">Around $170</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4whODGj" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4g8Pcxl" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Mizuno Wave Sky 9</span><span class="tag">Softest</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/wavesky9.png" alt="Mizuno Wave Sky 9" loading="lazy" /><span class="name">Mizuno Wave Sky 9</span></div><span class="tag">Softest</span></div>
       <div class="best">A high-cushion shoe great for walking or standing all day.</div>
       <div class="body">The Wave Sky is a soft option that is great for somebody looking for a comfortable shoe after a long day. This high-cushion option leans on the plushier side of foams and is a relaxing fit perfect for a walking or work shoe.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size.</div>
       <div class="price">Around $180</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4aoCpmL" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4v0mWAD" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Saucony Echelon 10</span><span class="tag">Firmer & springy</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/echelon10.png" alt="Saucony Echelon 10" loading="lazy" /><span class="name">Saucony Echelon 10</span></div><span class="tag">Firmer & springy</span></div>
       <div class="best">A supportive medium-cushion shoe great for walking!</div>
       <div class="body">The Saucony Echelon is a great high-volume walking shoe made to keep your feet from hurting after a long day exploring new cities, walking the dogs, or just enjoying some sun. This shoe has both a stable base and more stable cushion to keep anything from moving around any more than you'd naturally walk.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, but a slightly wider fit overall.</div>
       <div class="price">Around $155</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4eKxnSU" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/44CJTz6" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Nike Vomero 18</span><span class="tag">Softest</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/vomero18.png" alt="Nike Vomero 18" loading="lazy" /><span class="name">Nike Vomero 18</span></div><span class="tag">Softest</span></div>
       <div class="best">A high-cushion bouncy shoe great for easy days, long runs, or long hours on your feet.</div>
       <div class="body">The Vomero is a soft, high-cushioned daily trainer built around comfort over speed, so it shines on your easy days, long runs, or a long day on your feet. A great option if you want something comfortable for the long haul.</div>
       <div class="protip"><b>Pro tip:</b> Runs a little short, and also runs narrow.</div>
       <div class="price">Around $155</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4v3DSpW" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4xVaiWe" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Puma MagMax Nitro 2</span><span class="tag">Softest</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/magmaxnitro2.png" alt="Puma MagMax Nitro 2" loading="lazy" /><span class="name">Puma MagMax Nitro 2</span></div><span class="tag">Softest</span></div>
       <div class="best">A high-cushion bouncy shoe great for long runs, easy days, or long hours on your feet.</div>
       <div class="body">The MagMax is Puma's highest-cushioned trainer, with a big stack of soft, bouncy Nitro foam that is surprisingly light for how much shoe it is. It's built for long runs, recovery days, or a long day standing, and the roomier upper gives wider feet some space to relax.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, with a roomier upper.</div>
       <div class="price">Around $180</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4p37pyD" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4weKJha" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Brooks Glycerin GTS 23</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/glyceringts23.png" alt="Brooks Glycerin GTS 23" loading="lazy" /><span class="name">Brooks Glycerin GTS 23</span></div><span class="tag">Balanced</span></div>
       <div class="best">A bouncy high-cushion shoe with great stability \u2014 great for long walks, long days on your feet, or a long run.</div>
       <div class="body">The Glycerin GTS is a great option for someone looking for a higher-cushion shoe that has a bouncier, springy feel vs a plushy soft feel. The GTS model has GuideRails to ensure your ankle is moving correctly through every step. A great shoe for your long runs, long walks with the dogs, or a long day on your feet.</div>
       <div class="protip"><b>Pro tip:</b> True to size, with a slightly wider toe box and a narrower heel.</div>

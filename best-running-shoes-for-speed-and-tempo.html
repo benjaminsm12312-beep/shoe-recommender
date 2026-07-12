@@ -98,6 +98,25 @@
 
   .intro-hook{font-size:18px;color:var(--ink);margin-bottom:16px;line-height:1.5;}
   .intro-hook strong{color:var(--accent-deep);}
+
+  /* --- shoe thumbnails on pick blocks --- */
+  .pick-top{align-items:center;}
+  .pick-name-row{display:flex;align-items:center;gap:14px;min-width:0;flex:1;}
+  .pick-thumb{width:64px;height:64px;object-fit:contain;flex-shrink:0;background:var(--paper-2);border-radius:10px;padding:4px;}
+  /* --- editorial hero montage --- */
+  .hero-shelf{background:linear-gradient(180deg,var(--paper-2) 0%,var(--paper) 100%);border:1px solid var(--line);border-radius:20px;padding:30px 24px 26px;margin:26px 0 12px;text-align:center;}
+  .shelf-label{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:22px;}
+  .shelf-label b{color:var(--accent);}
+  .shelf-images{display:flex;justify-content:center;align-items:flex-end;gap:18px;flex-wrap:wrap;}
+  .shelf-images img{width:150px;height:110px;object-fit:contain;transition:transform .25s;}
+  .shelf-images img:nth-child(2){width:190px;height:140px;transform:translateY(-10px);}
+  .shelf-images img:hover{transform:translateY(-4px) scale(1.03);}
+  .shelf-images img:nth-child(2):hover{transform:translateY(-14px) scale(1.03);}
+  @media(max-width:560px){.shelf-images img,.shelf-images img:nth-child(2){width:100px;height:80px;transform:none;}}
+  /* --- wide-toe-box .card variant thumbnail --- */
+  .card-top{display:flex;align-items:center;gap:14px;}
+  .card-thumb{width:64px;height:64px;object-fit:contain;flex-shrink:0;background:var(--paper-2);border-radius:10px;padding:4px;}
+  .card-top h2{flex:1;min-width:0;}
 </style>
 </head>
 <body>
@@ -119,65 +138,69 @@
 <div class="sib-nav"><div class="sib-label">Guides:</div><a href="best-running-shoes-for-overpronation.html">Overpronation & Flat Feet</a><a href="best-running-shoes-for-plantar-fasciitis.html">Plantar Fasciitis</a><a href="best-cushioned-running-shoes.html">Cushioned</a><a href="best-shoes-for-standing-all-day.html">Standing All Day</a><a href="best-running-shoes-for-wide-feet.html">Wide Feet</a><a href="best-running-shoes-wide-toe-box.html">Wide Toe Box</a><a href="best-running-shoes-for-speed-and-tempo.html" class="sib-active">Speed & Tempo</a><a href="best-running-shoes-for-beginners.html">Beginners</a><a href="best-walking-shoes.html">Walking</a></div>
 </div></section>
 
+<section class="wrap"><div class="hero-shelf">
+  <div class="shelf-label">Featured picks &middot; <b>Top three for Speed & Tempo</b></div>
+  <div class="shelf-images"><img src="shoe_images/endorphinspeed5.png" alt="Saucony Endorphin Speed 5" loading="lazy" /><img src="shoe_images/kinvara16.png" alt="Saucony Kinvara 16" loading="lazy" /><img src="shoe_images/rebelv5.png" alt="New Balance Rebel v5" loading="lazy" /></div>
+</div></section>
 <section class="picks"><div class="wrap">
 <div class="pick">
-      <div class="pick-top"><span class="name">Saucony Endorphin Speed 5</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/endorphinspeed5.png" alt="Saucony Endorphin Speed 5" loading="lazy" /><span class="name">Saucony Endorphin Speed 5</span></div><span class="tag">Balanced</span></div>
       <div class="best">A lightweight nylon-plated trainer great for your faster runs.</div>
       <div class="body">The Endorphin Speed is a perfect shoe for somebody looking for a lightweight peppy trainer. This shoe performs very well as a soft yet springy option for tempo runs, or a long run where you really want to push it. The nylon plate creates a lot of pop, and since it isn't as aggressive as a carbon plate it is a great trainer.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size.</div>
       <div class="price">Around $175</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4wiw7gY" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4v4oslu" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Saucony Kinvara 16</span><span class="tag">Low & firm</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/kinvara16.png" alt="Saucony Kinvara 16" loading="lazy" /><span class="name">Saucony Kinvara 16</span></div><span class="tag">Low & firm</span></div>
       <div class="best">A lightweight shoe with a lot of bounce, made for your fast workouts.</div>
       <div class="body">The Kinvara is a super lightweight lower-cushion trainer designed to keep you connected to the ground. You will feel the road under your foot as you crank it into a new gear with this shoe. Perfect for a tempo or speed workout, it's a great option for runners wanting a shoe for their faster days.</div>
       <div class="protip"><b>Pro tip:</b> Fits slightly short, a little on the narrower side.</div>
       <div class="price">Around $130</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4xUJ7en" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4aMQzOT" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">New Balance Rebel v5</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/rebelv5.png" alt="New Balance Rebel v5" loading="lazy" /><span class="name">New Balance Rebel v5</span></div><span class="tag">Balanced</span></div>
       <div class="best">A lightweight bouncy shoe great for many running situations.</div>
       <div class="body">The Rebel has a very soft foam making it a super comfortable option for easy long runs. It does also have a ton of pop off the toe and with its lightweight design it also excels as a faster tempo/speedwork shoe.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, more snug than other New Balance shoes.</div>
       <div class="price">Around $145</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4bgp28m" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/3RbXmuH" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Asics Novablast 6</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/novablast6.png" alt="Asics Novablast 6" loading="lazy" /><span class="name">Asics Novablast 6</span></div><span class="tag">Balanced</span></div>
       <div class="best">A soft and springy shoe great for a faster run.</div>
       <div class="body">The Novablast is a lightweight peppy trainer that is great for the runner trying to shave some time off their next race. This shoe is great for tempo or faster long runs and the soft but bouncy feel of the shoe is sure to feel great all the way to the finish.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size.</div>
       <div class="price">Around $155</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4g9GdMp" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4vzDtN1" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Adidas Adizero Boston 13</span><span class="tag">Firmer & springy</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/boston13.png" alt="Adidas Adizero Boston 13" loading="lazy" /><span class="name">Adidas Adizero Boston 13</span></div><span class="tag">Firmer & springy</span></div>
       <div class="best">A firmer plated trainer built for your faster and longer training days.</div>
       <div class="body">The Boston uses Adidas' Energy Rods and a firmer Lightstrike foam to create a snappy, responsive ride that really does well when you pick up the pace. It's a great trainer for tempo runs, long runs, and marathon prep, and can even double as a budget race-day shoe. A solid option for runners who prefer a firmer, more responsive feel.</div>
       <div class="protip"><b>Pro tip:</b> Fits a little short, with a narrower heel.</div>
       <div class="price">Around $160</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4fbi72G" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4fbi72G" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Adidas Adizero Evo SL</span><span class="tag">Firmer & springy</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/evosl.png" alt="Adidas Adizero Evo SL" loading="lazy" /><span class="name">Adidas Adizero Evo SL</span></div><span class="tag">Firmer & springy</span></div>
       <div class="best">A lightweight bouncy shoe great for daily miles or picking up the pace.</div>
       <div class="body">The Evo SL puts Adidas' Lightstrike Pro foam into a light, medium-cushion, plateless shoe, giving it a springy, responsive feel without being too aggressive. It's a versatile trainer \u2014 comfortable enough for easy daily miles but light and peppy enough to push the pace on a tempo day. A great pick if you want one shoe to cover most of your running.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size.</div>
       <div class="price">Around $170</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/3QSsBuG" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/3Tab95u" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Hoka Mach 7</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/mach7.png" alt="Hoka Mach 7" loading="lazy" /><span class="name">Hoka Mach 7</span></div><span class="tag">Balanced</span></div>
       <div class="best">A peppy trainer great for daily training or faster workouts.</div>
       <div class="body">The Mach utilizes Hoka's rocker bottom to create a nice pop near the toe off. It's slightly on the lower-cushion side, but it's a soft foam which will keep your feet happy for most moderate runs. It's a great threshold or tempo run shoe, but is also great as a lightweight, springy daily trainer.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size.</div>
       <div class="price">Around $145</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4eImG4r" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4wrUqt4" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Puma Deviate Pure</span><span class="tag">Balanced</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/deviatepure.png" alt="Puma Deviate Pure" loading="lazy" /><span class="name">Puma Deviate Pure</span></div><span class="tag">Balanced</span></div>
       <div class="best">A lightweight bouncy shoe great for daily miles or a faster run.</div>
       <div class="body">The Deviate Pure uses Puma's Nitro foam without a plate, so you get a soft but responsive ride letting you feel the ground underneath you. It's light and flexible, which makes it a fun daily trainer that can pick up the pace when you want it to. A great everyday option for runners looking for a more responsive shoe.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, a touch narrow up front like most Pumas.</div>
       <div class="price">Around $150</div>
       <div class="shop-row"><a class="shop" href="https://amzn.to/4fet0kq" target="_blank" rel="noopener sponsored">Shop men's →</a><a class="shop alt" href="https://amzn.to/4y0eeFh" target="_blank" rel="noopener sponsored">Shop women's →</a></div>
     </div><div class="pick">
-      <div class="pick-top"><span class="name">Topo Cyclone 3</span><span class="tag">Low & firm</span></div>
+      <div class="pick-top"><div class="pick-name-row"><img class="pick-thumb" src="shoe_images/cyclone3.png" alt="Topo Cyclone 3" loading="lazy" /><span class="name">Topo Cyclone 3</span></div><span class="tag">Low & firm</span></div>
       <div class="best">A low-cushion lightweight shoe built for your faster, shorter runs.</div>
       <div class="body">The Cyclone is a minimal, lightweight speed shoe with a bouncy Pebax foam that keeps you close to the ground and quick on your feet. There isn't a lot of cushion, so it shines for tempo days, speed work, and shorter fast runs rather than long miles. Great for someone wanting a quick, responsive shoe with a lot of room for the toes.</div>
       <div class="protip"><b>Pro tip:</b> Fits true to size, with a wide toebox and a more standard midfoot.</div>

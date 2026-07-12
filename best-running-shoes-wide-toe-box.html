@@ -131,6 +131,25 @@
 
   .intro-hook{font-size:18px;color:var(--ink);margin-bottom:16px;line-height:1.5;}
   .intro-hook strong{color:var(--accent-deep);}
+
+  /* --- shoe thumbnails on pick blocks --- */
+  .pick-top{align-items:center;}
+  .pick-name-row{display:flex;align-items:center;gap:14px;min-width:0;flex:1;}
+  .pick-thumb{width:64px;height:64px;object-fit:contain;flex-shrink:0;background:var(--paper-2);border-radius:10px;padding:4px;}
+  /* --- editorial hero montage --- */
+  .hero-shelf{background:linear-gradient(180deg,var(--paper-2) 0%,var(--paper) 100%);border:1px solid var(--line);border-radius:20px;padding:30px 24px 26px;margin:26px 0 12px;text-align:center;}
+  .shelf-label{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:22px;}
+  .shelf-label b{color:var(--accent);}
+  .shelf-images{display:flex;justify-content:center;align-items:flex-end;gap:18px;flex-wrap:wrap;}
+  .shelf-images img{width:150px;height:110px;object-fit:contain;transition:transform .25s;}
+  .shelf-images img:nth-child(2){width:190px;height:140px;transform:translateY(-10px);}
+  .shelf-images img:hover{transform:translateY(-4px) scale(1.03);}
+  .shelf-images img:nth-child(2):hover{transform:translateY(-14px) scale(1.03);}
+  @media(max-width:560px){.shelf-images img,.shelf-images img:nth-child(2){width:100px;height:80px;transform:none;}}
+  /* --- wide-toe-box .card variant thumbnail --- */
+  .card-top{display:flex;align-items:center;gap:14px;}
+  .card-thumb{width:64px;height:64px;object-fit:contain;flex-shrink:0;background:var(--paper-2);border-radius:10px;padding:4px;}
+  .card-top h2{flex:1;min-width:0;}
 </style>
 </head>
 <body>
@@ -161,12 +180,16 @@
 </div></section>
 
 <!-- SHOES -->
+<section class="wrap"><div class="hero-shelf">
+  <div class="shelf-label">Featured picks &middot; <b>Top three for Wide Toe Box</b></div>
+  <div class="shelf-images"><img src="shoe_images/torin6.png" alt="Altra Torin 6" loading="lazy" /><img src="shoe_images/atmos2.png" alt="Topo Atmos 2" loading="lazy" /><img src="shoe_images/escalante5.png" alt="Altra Escalante 5" loading="lazy" /></div>
+</div></section>
 <section class="picks"><div class="wrap">
 
   <!-- SHOE 1: Altra Torin 6 -->
   <article class="card">
     <div class="card-top">
-      <h2>Altra Torin 6</h2>
+      <img class="card-thumb" src="shoe_images/torin6.png" alt="Altra Torin 6" loading="lazy" /><h2>Altra Torin 6</h2>
       <span class="tag">Balanced &middot; Zero Drop</span>
     </div>
     <p class="summary">A roomy, balanced daily trainer that pulls double duty as a walker.</p>
@@ -185,7 +208,7 @@
   <!-- SHOE 2: Topo Atmos 2 -->
   <article class="card">
     <div class="card-top">
-      <h2>Topo Atmos 2</h2>
+      <img class="card-thumb" src="shoe_images/atmos2.png" alt="Topo Atmos 2" loading="lazy" /><h2>Topo Atmos 2</h2>
       <span class="tag">Cushioned &amp; Responsive</span>
     </div>
     <p class="summary">A high-cushion pick giving extra stack without the memory-foam sink.</p>
@@ -204,7 +227,7 @@
   <!-- SHOE 3: Altra Escalante 5 -->
   <article class="card">
     <div class="card-top">
-      <h2>Altra Escalante 5</h2>
+      <img class="card-thumb" src="shoe_images/escalante5.png" alt="Altra Escalante 5" loading="lazy" /><h2>Altra Escalante 5</h2>
       <span class="tag">Low Cushion &middot; Zero Drop</span>
     </div>
     <p class="summary">Low and close to the ground &mdash; built for short, quick runs and grounded wear.</p>
