@@ -229,5 +229,20 @@
   </div>
   <div class="foot-note">Independent shoe-fitting guidance &middot; Not affiliated with any shoe brand. Recommendations are guidance, not medical advice — see a professional for a foot injury or condition. Some links are affiliate links; they never change which shoe we recommend.</div>
 </footer>
+
+<script>
+// GA4 affiliate click tracking for guide page shop buttons
+(function(){
+  document.querySelectorAll('.shop').forEach(function(a){
+    a.addEventListener('click', function(){
+      var container = a.closest('.pick') || a.closest('.card') || document;
+      var nameEl = container.querySelector('.name') || container.querySelector('h2');
+      var shoeName = nameEl ? nameEl.textContent.trim() : 'unknown shoe';
+      var variant = a.textContent.trim(); // "Shop men's" or "Shop women's"
+      gtag('event','affiliate_click',{event_category:'affiliate',event_label: shoeName + ' — ' + variant});
+    });
+  });
+})();
+</script>
 </body>
 </html>
