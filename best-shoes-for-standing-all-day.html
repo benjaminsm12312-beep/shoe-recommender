@@ -265,5 +265,50 @@
   });
 })();
 </script>
+<!-- Quiz popup: appears after 15s, dismissible for session -->
+<style>
+  .qp-popup{position:fixed;bottom:-140px;left:0;right:0;background:#1A3A5C;color:#fff;padding:16px 20px;box-shadow:0 -10px 40px -10px rgba(0,0,0,.4);z-index:999;transition:bottom .55s cubic-bezier(.16,1,.3,1);border-top:3px solid #E8462B;font-family:'Hanken Grotesk',system-ui,sans-serif;}
+  .qp-popup.show{bottom:0;}
+  .qp-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:18px;}
+  .qp-img{width:70px;height:70px;object-fit:contain;flex-shrink:0;background:rgba(255,255,255,.09);border-radius:12px;padding:6px;}
+  .qp-text{flex:1;min-width:0;}
+  .qp-title{font-family:'Archivo',system-ui,sans-serif;font-weight:800;font-size:17px;letter-spacing:-.01em;margin-bottom:2px;}
+  .qp-sub{font-size:13.5px;opacity:.82;}
+  .qp-btn{font-family:'Archivo',system-ui,sans-serif;font-weight:800;font-size:14.5px;background:#E8462B;color:#fff;border:none;border-radius:10px;padding:12px 22px;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .15s;flex-shrink:0;}
+  .qp-btn:hover{background:#C5371E;}
+  .qp-close{background:transparent;border:none;color:#fff;opacity:.55;cursor:pointer;padding:6px 10px;font-size:22px;line-height:1;flex-shrink:0;transition:opacity .15s;}
+  .qp-close:hover{opacity:1;}
+  @media(max-width:640px){
+    .qp-popup{padding:12px 14px;}
+    .qp-inner{gap:12px;}
+    .qp-img{width:52px;height:52px;padding:4px;border-radius:10px;}
+    .qp-title{font-size:14.5px;}
+    .qp-sub{font-size:12px;}
+    .qp-btn{padding:10px 14px;font-size:13px;}
+    .qp-close{font-size:20px;padding:4px 6px;}
+  }
+</style>
+<script>
+(function(){
+  if(sessionStorage.getItem('qpDismissed'))return;
+  var p=document.createElement('div');
+  p.className='qp-popup';
+  p.innerHTML='<div class="qp-inner"><img class="qp-img" src="shoe_images/gelkayano33.png" alt="" /><div class="qp-text"><div class="qp-title">Still not sure which shoe?</div><div class="qp-sub">Take our free 60-second fit quiz for a personalized recommendation.</div></div><a class="qp-btn" href="index.html#quiz">Start quiz &rarr;</a><button class="qp-close" aria-label="Close">&times;</button></div>';
+  document.body.appendChild(p);
+  setTimeout(function(){
+    p.classList.add('show');
+    if(typeof gtag!=='undefined')gtag('event','quiz_popup_shown',{event_category:'engagement'});
+  },15000);
+  p.querySelector('.qp-close').addEventListener('click',function(){
+    p.classList.remove('show');
+    sessionStorage.setItem('qpDismissed','1');
+    if(typeof gtag!=='undefined')gtag('event','quiz_popup_dismissed',{event_category:'engagement'});
+  });
+  p.querySelector('.qp-btn').addEventListener('click',function(){
+    if(typeof gtag!=='undefined')gtag('event','quiz_popup_click',{event_category:'engagement'});
+  });
+})();
+</script>
+
 </body>
 </html>
