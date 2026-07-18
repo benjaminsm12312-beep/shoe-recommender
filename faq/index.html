@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8THNTC0DXS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-8THNTC0DXS");
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FAQ — The Shoe Recommender</title>
+<meta name="description" content="Answers to common questions about The Shoe Recommender — how recommendations work, whether we take brand deals, and how to get your shoe match." />
+<link rel="canonical" href="https://shoerecommender.com/faq/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="FAQ — The Shoe Recommender" />
+<meta property="og:description" content="Answers to common questions about The Shoe Recommender — how recommendations work, whether we take brand deals, and how to get your shoe match." />
+<meta property="og:url" content="https://shoerecommender.com/faq/" />
+<meta property="og:image" content="https://shoerecommender.com/logo.png" />
+<meta property="og:site_name" content="The Shoe Recommender" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="FAQ — The Shoe Recommender" />
+<meta name="twitter:description" content="Answers to common questions about The Shoe Recommender — how recommendations work, whether we take brand deals, and how to get your shoe match." />
+<meta name="twitter:image" content="https://shoerecommender.com/logo.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
+
+<!-- ============================================================
+     FAQ PAGE
+     Matches the site's design system. To add or edit a question,
+     find the .faq-item blocks below and copy one as a template.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink:#17181C; --ink-soft:#44474F; --paper:#FAFAF9; --paper-2:#F0EFEB;
+    --line:#E3E2DC; --accent:#E8462B; --accent-deep:#C5371E; --accent-tint:#FBE6DF; --white:#FFFFFF;
+    --font-display:'Archivo',system-ui,sans-serif; --font-body:'Hanken Grotesk',system-ui,sans-serif;
+    --maxw:1080px;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:var(--font-body); background:var(--paper); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:var(--maxw); margin:0 auto; padding:0 22px; }
+  a { color:var(--accent); }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline:3px solid var(--accent); outline-offset:3px; border-radius:4px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav { border-bottom:1px solid var(--line); background:var(--paper); position:sticky; top:0; z-index:50; }
+  .nav-inner { display:flex; align-items:center; justify-content:space-between; height:62px; }
+  .wordmark {
+    font-family:var(--font-display); font-weight:900; font-size:18px;
+    letter-spacing:-0.02em; text-decoration:none; color:var(--ink);
+    display:flex; align-items:center; gap:10px;
+  }
+  .wordmark .dot { color:var(--accent); }
+  .nav-logo { height:32px; width:auto; flex-shrink:0; }
+  .nav-links { display:flex; align-items:center; gap:22px; }
+  .nav-links a { font-family:var(--font-body); font-weight:600; font-size:14.5px; color:var(--ink-soft); text-decoration:none; }
+  .nav-links a:hover { color:var(--ink); }
+  .nav-links a.current { color:var(--accent); }
+
+  /* ---------- PAGE HEADER ---------- */
+  .page-head { padding:56px 0 18px; }
+  .kicker {
+    font-family:var(--font-display); font-weight:700;
+    font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:14px;
+  }
+  h1.title {
+    font-family:var(--font-display); font-weight:900;
+    font-size:clamp(34px,7vw,54px); letter-spacing:-0.03em; line-height:1.02;
+  }
+  .subhead {
+    margin-top:16px; font-size:17px; color:var(--ink-soft); max-width:50ch;
+  }
+
+  /* ---------- FAQ LIST ---------- */
+  section.faq { padding:30px 0 90px; }
+  .faq-list { max-width:780px; margin-top:24px; }
+  .faq-item {
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:14px;
+    margin-bottom:14px;
+    overflow:hidden;
+    transition:box-shadow .15s ease;
+  }
+  .faq-item[open] { box-shadow:0 1px 0 var(--line), 0 12px 30px -22px rgba(0,0,0,.18); }
+  .faq-q {
+    font-family:var(--font-display); font-weight:800;
+    font-size:clamp(17px,2.4vw,20px);
+    color:var(--ink);
+    padding:20px 24px;
+    cursor:pointer;
+    list-style:none;
+    display:flex; align-items:center; justify-content:space-between; gap:18px;
+    transition:color .15s ease;
+  }
+  .faq-q::-webkit-details-marker { display:none; }
+  .faq-q:hover { color:var(--accent); }
+  .faq-q .chev {
+    width:22px; height:22px; flex-shrink:0;
+    border-radius:50%; background:var(--paper-2);
+    display:grid; place-items:center;
+    transition:transform .2s ease, background .15s ease;
+  }
+  .faq-q .chev::before {
+    content:""; width:7px; height:7px;
+    border-right:2px solid var(--ink-soft);
+    border-bottom:2px solid var(--ink-soft);
+    transform:rotate(45deg);
+    transition:border-color .15s ease;
+    margin-top:-2px;
+  }
+  .faq-item[open] .faq-q .chev { transform:rotate(180deg); background:var(--accent-tint); }
+  .faq-item[open] .faq-q .chev::before { border-color:var(--accent); }
+  .faq-a {
+    padding:0 24px 22px;
+    font-size:16px; color:var(--ink-soft);
+  }
+  .faq-a p { margin-bottom:10px; }
+  .faq-a p:last-child { margin-bottom:0; }
+  .faq-a a { font-weight:600; }
+
+  /* ---------- CTA AT BOTTOM ---------- */
+  .more-q {
+    margin-top:38px;
+    padding:24px 26px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:14px;
+    max-width:780px;
+    display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+  }
+  .more-q .mq-text { font-size:15.5px; color:var(--ink-soft); }
+  .more-q .mq-text strong { color:var(--ink); font-family:var(--font-display); font-weight:800; display:block; margin-bottom:2px; font-size:17px; }
+  .more-q a.mq-btn {
+    font-family:var(--font-display); font-weight:800; font-size:14.5px;
+    color:var(--white); background:var(--ink);
+    padding:11px 20px; border-radius:10px; text-decoration:none;
+    transition:background .15s ease;
+  }
+  .more-q a.mq-btn:hover { background:#000; }
+
+  /* ---------- FOOTER ---------- */
+  footer { border-top:1px solid var(--line); padding:34px 0; margin-top:10px; }
+  footer .fm { font-family:var(--font-display); font-weight:900; color:var(--ink); margin-bottom:14px; }
+  footer .fm .dot { color:var(--accent); }
+  .foot-links { display:flex; gap:18px; flex-wrap:wrap; margin-bottom:14px; }
+  .foot-links a { color:var(--ink-soft); text-decoration:none; font-size:13.5px; }
+  .foot-links a:hover { color:var(--ink); }
+  .foot-note { font-size:13.5px; color:var(--ink-soft); }
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"The Shoe Recommender",
+"url":"https://shoerecommender.com","logo":"https://shoerecommender.com/favicon.png"}
+</script>
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="wordmark"><img src="/logo.png" alt="The Shoe Recommender" class="nav-logo" />The Shoe Recommender<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About Us</a>
+      <a href="/faq/" class="current">FAQ</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ PAGE HEADER ============================ -->
+<section class="page-head">
+  <div class="wrap">
+    <div class="kicker">FAQ</div>
+    <h1 class="title">Frequently Asked Questions</h1>
+    <p class="subhead">Everything you need to know about The Shoe Recommender.</p>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="faq wrap">
+  <div class="faq-list">
+
+    <!-- Q1 -->
+    <details class="faq-item" open>
+      <summary class="faq-q">
+        Does The Shoe Recommender have any brand deals with shoe companies?
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a">
+        <p>No! We are dedicated to providing you with a completely unbiased shoe recommendation. We don't provide recommendations based on what profit we can make, but what best fits you.</p>
+      </div>
+    </details>
+
+    <!-- Q2 -->
+    <details class="faq-item">
+      <summary class="faq-q">
+        How do I get a shoe recommendation?
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a">
+        <p>Go and take our 60 second quiz and get your personalized Shoe Recommendation!</p>
+      </div>
+    </details>
+
+    <!-- Q3 -->
+    <details class="faq-item">
+      <summary class="faq-q">
+        How do the recommendations work?
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a">
+        <p>Our recommendations come from shoe fitting professionals with over 5+ years of experience. Your recommendation will be based on what type of activity you do, how frequently you do it, and what your preference is. Try it out for yourself!</p>
+      </div>
+    </details>
+
+    <!-- Q4 -->
+    <details class="faq-item">
+      <summary class="faq-q">
+        Why should I trust The Shoe Recommender?
+        <span class="chev" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-a">
+        <p>The Shoe Recommender has no brand deals with shoe companies, meaning we don't recommend shoes based on what will yield us profit, but what is best for you. This combined with our shoe fitting professionals with years of experience creates an unbiased and informative experience for everyone.</p>
+      </div>
+    </details>
+
+  </div>
+
+  <!-- Bottom CTA -->
+  <div class="more-q">
+    <div class="mq-text">
+      <strong>Still have a question?</strong>
+      Drop us a line and we'll get back to you.
+    </div>
+    <a href="/contact/" class="mq-btn">Contact us &rarr;</a>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="wrap" style="display:block; text-align:left;">
+  <div class="fm">The Shoe Recommender<span class="dot">.</span></div>
+  <div class="foot-links">
+    <a href="/disclosure/">Affiliate Disclosure</a>
+    <a href="/privacy/">Privacy Policy</a>
+    <a href="/terms/">Terms &amp; Conditions</a>
+  </div>
+  <div class="foot-note">Independent shoe-fitting guidance &middot; Not affiliated with any shoe brand</div>
+</footer>
+
+<!-- Quiz popup: appears after 15s, dismissible for session -->
+<style>
+  .qp-popup{position:fixed;bottom:-140px;left:0;right:0;background:#1A3A5C;color:#fff;padding:16px 20px;box-shadow:0 -10px 40px -10px rgba(0,0,0,.4);z-index:999;transition:bottom .55s cubic-bezier(.16,1,.3,1);border-top:3px solid #E8462B;font-family:'Hanken Grotesk',system-ui,sans-serif;}
+  .qp-popup.show{bottom:0;}
+  .qp-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:18px;}
+  .qp-img{width:70px;height:70px;object-fit:contain;flex-shrink:0;background:rgba(255,255,255,.09);border-radius:12px;padding:6px;}
+  .qp-text{flex:1;min-width:0;}
+  .qp-title{font-family:'Archivo',system-ui,sans-serif;font-weight:800;font-size:17px;letter-spacing:-.01em;margin-bottom:2px;}
+  .qp-sub{font-size:13.5px;opacity:.82;}
+  .qp-btn{font-family:'Archivo',system-ui,sans-serif;font-weight:800;font-size:14.5px;background:#E8462B;color:#fff;border:none;border-radius:10px;padding:12px 22px;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .15s;flex-shrink:0;}
+  .qp-btn:hover{background:#C5371E;}
+  .qp-close{background:transparent;border:none;color:#fff;opacity:.55;cursor:pointer;padding:6px 10px;font-size:22px;line-height:1;flex-shrink:0;transition:opacity .15s;}
+  .qp-close:hover{opacity:1;}
+  @media(max-width:640px){
+    .qp-popup{padding:12px 14px;}
+    .qp-inner{gap:12px;}
+    .qp-img{width:52px;height:52px;padding:4px;border-radius:10px;}
+    .qp-title{font-size:14.5px;}
+    .qp-sub{font-size:12px;}
+    .qp-btn{padding:10px 14px;font-size:13px;}
+    .qp-close{font-size:20px;padding:4px 6px;}
+  }
+</style>
+<script>
+(function(){
+  if(sessionStorage.getItem('qpDismissed'))return;
+  var p=document.createElement('div');
+  p.className='qp-popup';
+  p.innerHTML='<div class="qp-inner"><img class="qp-img" src="/shoe_images/gelkayano33.png" alt="" /><div class="qp-text"><div class="qp-title">Still not sure which shoe?</div><div class="qp-sub">Take our free 60-second fit quiz for a personalized recommendation.</div></div><a class="qp-btn" href="/#quiz">Start quiz &rarr;</a><button class="qp-close" aria-label="Close">&times;</button></div>';
+  document.body.appendChild(p);
+  setTimeout(function(){
+    p.classList.add('show');
+    if(typeof gtag!=='undefined')gtag('event','quiz_popup_shown',{event_category:'engagement'});
+  },15000);
+  p.querySelector('.qp-close').addEventListener('click',function(){
+    p.classList.remove('show');
+    sessionStorage.setItem('qpDismissed','1');
+    if(typeof gtag!=='undefined')gtag('event','quiz_popup_dismissed',{event_category:'engagement'});
+  });
+  p.querySelector('.qp-btn').addEventListener('click',function(){
+    if(typeof gtag!=='undefined')gtag('event','quiz_popup_click',{event_category:'engagement'});
+  });
+})();
+</script>
+
+</body>
+</html>
